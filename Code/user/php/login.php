@@ -10,15 +10,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $customer_email = $_POST["customer_email"];
     $customer_pass = $_POST["customer_pass"];
 
-    // Insert user into the database
-    $sql = "SELECT * FROM users
+    // Check customer from DB
+    $sql = "SELECT * FROM customer
             WHERE customer_email = '$customer_email' AND customer_pass = '$customer_pass'";
     
     $result = $connection->query($sql);
 
+    //Checks if customer is available from DB
     if ($result-> num_rows > 0) {
         $_SESSION["customer_email"] = $customer_email;
         echo "Login successful!";
+        //Redirect to index.html
+        header("Location: ../html/index.html");
     } else {
         echo "Invalid username or password";
     }
