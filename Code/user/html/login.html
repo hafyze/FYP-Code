@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Temp de Ventre</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../css/register.css">
+	<script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h2>Login</h2>
+
+    <form action="../php/login.php" method="POST">
+
+        <label for="customer_name"></label>
+        <input type="text" id="customer_name" name="customer_name" 
+        placeholder="Full Name" required>
+        <br>
+
+        <label for="customer_contact"></label>
+        <input type="text" id="customer_contact" name="customer_contact" 
+        placeholder="Phone Number" required>
+        <br>
+
+        <label for="customer_email"></label>
+        <input type="text" id="customer_email" name="customer_email"
+        placeholder="Email" required>
+        <br>
+
+        <label for="customer_pass"></label>
+        <input type="password" id="customer_pass" name="customer_pass" 
+        placeholder="Password" required>
+        <br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+
+</html>
