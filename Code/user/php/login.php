@@ -3,27 +3,24 @@
 
 include("../php/dataconnection.php");
 
-// Check connection
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
-}
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $customer_name = $_POST["customer_name"];
-    $customer_contact = $_POST["customer_contact"];
+    // Retrieve login form data
     $customer_email = $_POST["customer_email"];
     $customer_pass = $_POST["customer_pass"];
 
     // Insert user into the database
-    $sql = "INSERT INTO customer (customer_name, customer_contact, customer_email, customer_pass) 
-            VALUES ('$customer_name', '$customer_contact', '$customer_email', $customer_pass)";
+    $sql = "SELECT * FROM users
+            WHERE customer_email = '$customer_email' AND customer_pass = '$customer_pass'";
     
-    if ($connection->query($sql) === TRUE) {
-        echo "Registration successful!";
+    $result = $connection->query($sql);
+
+    if ($result-> num_rows > 0) {
+        $_SESSION["customer_email"] = $customer_email;
+        echo "Login successful!";
     } else {
-        echo "Error: " . $sql . "<br>" . $connection->error;
+        echo "Invalid username or password";
     }
 }
 
