@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Update the user's profile in the database
     $updateQuery = "UPDATE users 
     SET customer_name = '$custName', customer_contact = '$custContact', customer_email = '$custEmail', customer_password = '$custPassword' 
-    WHERE id = $userID";
+    WHERE id = $custId";
 
     mysqli_query($connection, $updateQuery);
 
