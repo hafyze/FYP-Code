@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Hotel Website</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #container {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .widget {
+      width: 300px;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .widget h2 {
+      margin-top: 0;
+    }
+
+    .widget p {
+      color: #666;
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Temp de Ventre</h1>
-    <header>
-        
-        <nav id="navbar">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Specialty</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Contact Us</a></li>
-				<li><a href="#">Order Now</a></li>
-				
-            </ul>
-        </nav>
-    </header>
-
-    <img src="" alt="IMG of Restaurant">
-
-    <div id="aboutUs">
-        
+  <div id="container">
+    <div class="widget">
+      <h2>Widget 1</h2>
+      <p>This is the content of widget 1.</p>
     </div>
-    <button>KYS</button>
+    <div class="widget">
+      <h2>Widget 2</h2>
+      <p>This is the content of widget 2.</p>
+    </div>
+    <div class="widget">
+      <h2>Widget 3</h2>
+      <p>This is the content of widget 3.</p>
+    </div>
+  </div>
 </body>
+</html>
