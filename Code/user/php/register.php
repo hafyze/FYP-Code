@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$customer_name', '$customer_contact', '$customer_email', $customer_pass)";
     
     if ($connection->query($sql) === TRUE) {
-        echo "Registration successful!";
+        header("Location: ../html/index.html");
     } else {
         echo "Error: " . $sql . "<br>" . $connection->error;
     }
