@@ -61,6 +61,10 @@ img{
 #logout{
     margin-right: 1.2em;
 }
-button{
-    float: right;
+
+div i{
+    width: 50%;
+    margin:auto;
+    padding: 10px;
+    text-align: center;
 }
