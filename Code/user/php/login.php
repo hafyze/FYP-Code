@@ -30,3 +30,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Temp de Ventre</title>
+
+    <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Faster Time for CSS to take effect in debugging Style in page -->
+    <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
+
+</head>
+
+<body>
+    <h2>Login</h2>
+
+    <?php if (isset($errorMessage)) { ?>
+        <p><?php echo $errorMessage; ?></p>
+    <?php } ?>
+
+    <form action="../php/login.php" method="POST">
+        <label for="customer_email">Email:</label>
+        <input type="text" id="customer_email" name="customer_email" required><br>
+
+        <label for="customer_password">Password:</label>
+        <input type="password" id="customer_password" name="customer_password" required><br>
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
