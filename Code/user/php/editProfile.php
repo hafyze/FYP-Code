@@ -1,11 +1,12 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['customer_id'])) {
     header("Location: ../php/login.php");
     exit;
 }
 
-include('dataconnection.php');
+include('../php/dataconnection.php');
 
 // Retrieve the user's profile information from the database
 $custId = $_SESSION['customer_id'];
@@ -26,12 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     SET customer_name = '$custName', 
                     customer_contact = '$custContact', 
                     customer_email = '$custEmail', 
-                    customer_password = '$custPass' 
+                    customer_pass = '$custPass' 
                     WHERE customer_id = $custId";
     mysqli_query($connection, $updateQuery);
 
     // Redirect to the profile page after updating the profile
-    header("Location: ../php/profile.php");
+    header("Location: ../php/profile.php?success=1");
     exit;
 }
 ?>
