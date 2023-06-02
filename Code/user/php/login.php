@@ -1,5 +1,6 @@
 <?php
 // Establish database connection
+session_start();
 
 include("../php/dataconnection.php");
 
@@ -17,16 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $connection->query($sql);
 
     //Checks if customer is available from DB
-    if ($result-> num_rows > 0) {
-        $_SESSION["customer_email"] = $customer_email;
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION["customer_id"] = $row['customer_id'];
         echo "Login successful!";
         //Redirect to index.html
         header("Location: ../html/index.html");
+        exit;
     } else {
         echo "Invalid username or password";
     }
 }
-
-// Close database connection
-$connection->close();
 ?>
