@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../html/index.html");
         exit;
     } else {
-        echo "Invalid username or password";
+        echo "Invalid email or password";
     }
 }
 ?>
@@ -53,10 +53,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <form action="../php/login.php" method="POST">
         <label for="customer_email">Email:</label>
-        <input type="text" id="customer_email" name="customer_email" required><br>
+        <input type="text" name="customer_email" placeholder="abc@gmail.com" required><br>
 
-        <label for="customer_password">Password:</label>
-        <input type="password" id="customer_password" name="customer_password" required><br>
+        <label for="customer_pass">Password:</label>
+        <input type="password" name="customer_pass" placeholder="123"required><br>
 
         <input type="submit" value="Login">
     </form>
