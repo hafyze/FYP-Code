@@ -1,15 +1,14 @@
 <?php
 session_start();
-// Check if the user is logged in, otherwise redirect to the login page
+
 if (!isset($_SESSION['customer_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Include your database connection file
 include('../php/dataconnection.php');
 
-// Retrieve the user's profile information from the database
+// Get customer info from db
 $custId = $_SESSION['customer_id'];
 $query = "SELECT * FROM customer 
                     WHERE customer_id = $custId";

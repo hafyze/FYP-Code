@@ -8,21 +8,21 @@ if (!isset($_SESSION['customer_id'])) {
 
 include('../php/dataconnection.php');
 
-// Retrieve the user's profile information from the database
+// Get customer info from db
 $custId = $_SESSION['customer_id'];
 $query = "SELECT * FROM customer
                     WHERE customer_id = $custId";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 
-// Process the form submission for updating the profile
+// declare related variable after submitting the form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $custName = $_POST['customer_name'];
     $custContact = $_POST['customer_contact'];
     $custEmail = $_POST['customer_email'];
     $custPass = $_POST['customer_pass'];
 
-    // Update the user's profile in the database
+    // Update the user data in database
     $updateQuery = "UPDATE customer 
                     SET customer_name = '$custName', 
                     customer_contact = '$custContact', 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     WHERE customer_id = $custId";
     mysqli_query($connection, $updateQuery);
 
-    // Redirect to the profile page after updating the profile
+    // Redirect to profile page
     header("Location: ../php/profile.php?success=1");
     exit;
 }

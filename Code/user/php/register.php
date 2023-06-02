@@ -1,16 +1,10 @@
 <?php
-// Establish database connection
+session_start();
 
 include("../php/dataconnection.php");
 
-// Check connection
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
-}
-
-// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
+    // Data from form is declared 
     $customer_name = $_POST["customer_name"];
     $customer_contact = $_POST["customer_contact"];
     $customer_email = $_POST["customer_email"];
@@ -23,10 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($connection->query($sql) === TRUE) {
         header("Location: ../html/index.html");
     } else {
-        echo "Error: " . $sql . "<br>" . $connection->error;
+        echo "Error: " . $sql . "<br>";
     }
 }
 
-// Close database connection
 $connection->close();
 ?>

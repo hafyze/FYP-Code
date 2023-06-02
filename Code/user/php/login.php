@@ -1,11 +1,10 @@
 <?php
-// Establish database connection
 session_start();
 
 include("../php/dataconnection.php");
 
 
-// Handle form submission
+// declare related variable after submitting the form
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve login form data
     $customer_email = $_POST["customer_email"];
@@ -22,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = mysqli_fetch_assoc($result);
         $_SESSION["customer_id"] = $row['customer_id'];
         echo "Login successful!";
-        //Redirect to index.html
+        //Redirect to main page
         header("Location: ../html/index.html");
         exit;
     } else {
