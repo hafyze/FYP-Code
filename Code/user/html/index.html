@@ -6,7 +6,7 @@
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" >
 
 </head>
 
@@ -43,9 +43,21 @@
 
     
 
-    <img src="../img/tdv.jpg" alt="IMG of Restaurant">
+    <div style="position: relative;">
+        <form id="search-form" action="../php/searchFood.php" method="GET">
+            <input type="text" id="search-bar" name="term" placeholder="Search for food...">
+            <button type="submit" id="search-btn">Search</button>
+        </form>
+        
+        <img src="../img/tdv.jpg" alt="IMG of Restaurant">
+        
+    </div>
 
     <div id="aboutUs">
         
     </div>
 </body>
+
+<script src="../js/index.js"></script>
+
+</html>
