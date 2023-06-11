@@ -1,19 +1,23 @@
 <?php
+
+// Start the session if not already started
 session_start();
 
 if (isset($_POST['product'])) {
-    $selectedProduct = $_POST['product'];
+    $product = $_POST['product'];
 
-    // Store the selected product in the user's cart or session
+    // Check if the cart array exists in the session
     if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
+        $_SESSION['cart'] = array(); // Create an empty cart array
     }
-    $_SESSION['cart'][] = $selectedProduct;
 
-    // Redirect back to the search page or show a success message
-    header("Location: index.html");
+    // Add the selected product to the cart
+    $item = array('product' => $product);
+    $_SESSION['cart'][] = $item;
+
+    // Redirect the user back to the search results page or any other desired page
+    header('Location: ../php/cart.php');
     exit();
-} else {
-    echo "Invalid request.";
 }
+
 ?>

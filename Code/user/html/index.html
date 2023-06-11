@@ -22,7 +22,7 @@
     </div>
 
     <form action="../php/logout.php" method="POST">
-        <input type="submit" value="Logout">
+        <input style="float: right;" type="submit" value="Logout">
     </form>
         
 
@@ -41,7 +41,12 @@
         </nav>
     </header>
 
-    
+    <div id="cart-section">
+        <h2>Cart</h2>
+        <ul id="cart-items">
+            <?php include '../php/cart.php'; ?>        
+        </ul>
+    </div>
 
     <div style="position: relative;">
         <form id="search-form" action="../php/searchFood.php" method="GET">
