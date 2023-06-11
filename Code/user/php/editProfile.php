@@ -51,7 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <h1>Edit Profile</h1>
+    <h1><a href="../html/index.html"></a></h1>
+    <h2>Edit Profile</h2>
     <form action="../php/editProfile.php" method="POST">
         <label for="customer_name">Name:</label>
         <input type="text"  name="customer_name" value="<?php echo $row['customer_name']; ?>"><br>

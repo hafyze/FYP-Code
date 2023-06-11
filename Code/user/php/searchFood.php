@@ -29,5 +29,5 @@ if (isset($_GET['term'])) {
 }
 
 // Close the database connection
-$conn->close();
+$connection->close();
 ?>
