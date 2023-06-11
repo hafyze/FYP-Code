@@ -20,12 +20,14 @@ if (isset($_GET['foodSearch'])) {
             while ($row = $result->fetch_assoc()) {
                 $foodName = $row['product_name'];
                 $foodPrice = $row['price'];
+                
                 // Generate HTML content for each search result with "Add to Cart" form
                 echo "<li>$foodName RM$foodPrice";
-                echo "<form class='add-to-cart-form' action='../php/addCart.php' method='POST'>";
-                echo "<input type='hidden' name='product' value='$foodName'>";
-                echo "<button type='submit'>Add to Cart</button>";
-                echo "</form>";
+                    echo "<form class='add-to-cart-form' action='../php/addCart.php' method='POST'>";
+                        echo "<input type='hidden' name='product' value='$foodName'>";
+                        echo "<input type='number' name='quantity' value='1' min='1'>"; // Input field for quantity
+                        echo "<button type='submit'>Add to Cart</button>";
+                    echo "</form>";
                 echo "</li>";
             }
             echo "</ul>";
