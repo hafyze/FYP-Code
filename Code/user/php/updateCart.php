@@ -16,7 +16,7 @@ if (isset($_POST['quantity'])) {
         $_SESSION['cart'] = $cartItems;
 
         // Redirect the user back to the cart page or any other desired page
-        header('Location: ../html/cart.php');
+        header('Location: ../php/cart.php');
         exit();
     }
 }
