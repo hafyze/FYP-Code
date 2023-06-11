@@ -3,11 +3,11 @@
 include("../php/dataconnection.php");
 
 // Check if the search term is provided in the query parameters
-if (isset($_GET['term'])) {
-    $searchTerm = $_GET['term'];
+if (isset($_GET['foodSearch'])) {
+    $searchTerm = $_GET['foodSearch'];
 
     // Perform your search logic here
-    $sql = "SELECT * FROM Food WHERE name LIKE '%searchTerm'";
+    $sql = "SELECT * FROM product WHERE product_name LIKE '%$searchTerm%'";
 
     $result = $connection->query($sql);
 
@@ -17,7 +17,7 @@ if (isset($_GET['term'])) {
             echo "<ul>";
             while ($row = $result->fetch_assoc()) {
                 // Access individual rows and columns
-                $foodName = $row['name'];
+                $foodName = $row['product_name'];
                 // Generate HTML content for each search result
                 echo "<li>$foodName</li>";
             }
