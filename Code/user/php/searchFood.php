@@ -16,10 +16,14 @@ if (isset($_GET['foodSearch'])) {
         if ($result->num_rows > 0) {
             echo "<ul>";
             while ($row = $result->fetch_assoc()) {
-                // Access individual rows and columns
                 $foodName = $row['product_name'];
-                // Generate HTML content for each search result
-                echo "<li>$foodName</li>";
+                // Generate HTML content for each search result with "Add to Cart" form
+                echo "<li>$foodName";
+                echo "<form class='add-to-cart-form' action='../php/addCart.php' method='POST'>";
+                echo "<input type='hidden' name='product' value='$foodName'>";
+                echo "<button type='submit'>Add to Cart</button>";
+                echo "</form>";
+                echo "</li>";
             }
             echo "</ul>";
         } else {
