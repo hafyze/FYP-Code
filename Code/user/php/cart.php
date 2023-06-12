@@ -48,6 +48,6 @@ if (isset($_SESSION['cart'])) {
 }
 ?>
 
-<h4 style="text-align: center"><a href="../html/payment.html">Pay Now</a></h4>
+<h4 style="text-align: center"><a href="../php/payment.php">Pay Now</a></h4>
 
 </html>

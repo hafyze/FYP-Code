@@ -43,6 +43,48 @@
 
     <h2>Payment Details</h2>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the cart items and display the details -->
+            <?php
+            session_start();
+
+            if (isset($_SESSION['cart'])) {
+                $cartItems = $_SESSION['cart'];
+
+                if (!empty($cartItems)) {
+                    foreach ($cartItems as $key => $item) {
+                        if (is_array($item) && isset($item['product'])) {
+                            $productName = $item['product'];
+                            $quantity = $item['quantity'];
+                            $price = 10; // Replace with the actual price of the product
+                            $subtotal = $quantity * $price;
+
+                            echo "<tr>";
+                            echo "<td>$productName</td>";
+                            echo "<td>$quantity</td>";
+                            echo "<td>RM$price</td>";
+                            echo "<td>RM$subtotal</td>";
+                            echo "</tr>";
+                        }
+                    }
+                } else {
+                    echo "<tr><td colspan='4'>Cart is empty</td></tr>";
+                }
+            } else {
+                echo "<tr><td colspan='4'>Cart is empty</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
     
 </body>
 
