@@ -30,7 +30,8 @@ $row = mysqli_fetch_assoc($result);
 </head>
 
 <body>
-    <h1>User Profile</h1>
+    <h1><a href="../html/index.html">Temp De Ventre</a></h1>
+    <h2>User Profile</h2>
     <p>Name: <?php echo $row['customer_name']; ?></p>
     <p>Contact: <?php echo $row['customer_contact']; ?></p>
     <p>Email: <?php echo $row['customer_email']; ?></p>
