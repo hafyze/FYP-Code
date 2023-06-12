@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>Temp de Ventre</title>
 
@@ -46,3 +47,7 @@ if (isset($_SESSION['cart'])) {
     echo "<li>Cart is empty</li>";
 }
 ?>
+
+<h4 style="text-align: center"><a href="../html/payment.html">Pay Now</a></h4>
+
+</html>
