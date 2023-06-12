@@ -5,9 +5,10 @@
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Faster Time for CSS to take effect in debugging Style in page -->
+
     <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/cart.css?v=<?php echo time(); ?>">
+    
 </head>
 <body>
     <h1><a href="../html/index.html">Temp De Ventre</a></h1>
