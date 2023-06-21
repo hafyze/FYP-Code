@@ -27,13 +27,7 @@
         <h2>Temps De Ventre</h2>
     </header>
 
-    <div class="sidebar">
-        <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
-        <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
-        <a href="../staffs.html"><i class="fa fa-fw fa-user"></i> Staffs</a>
-        <a href="../members.html"><i class="fa-solid fa-user-tie"></i> Member</a>
-        <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
-    </div>
+
 
     <div class="main">
         <div id="admindash">
@@ -44,31 +38,23 @@
 
                 <form class="addroom" name="addfrm" method="post" action="../php/add_order.php">
                     <p>
-                        <label for="room_name">Room Name: </label>
-                        <input type="text" name="room_name" size="80"></p>
+                        <label for="product_name">Product Name: </label>
+                        <input type="text" name="product_name" size="80"></p>
                     <p>
-                        <label for="date_in">Check in date:</label>
-                        <input type="date" name="date_in"></p>
+                        <label for="product_type">Product Type:</label>
+                        <input type="text" name="product_type"></p>
                     <p>
                     <p>
-                        <label for="date_out">Check out date:</label>
-                        <input type="date" name="date_out"></p>
+                        <label for="product_ingredients">Product Ingredients:</label>
+                        <input type="text" name="product_ingredients"></p>
                         <p>
-                        <label for="room_price">Room Price (RM):</label>
-                        <input class="user_input" type="text" name="room_price" size="10"></p>
+                        <label for="product_price">Room Price (RM):</label>
+                        <input class="user_input" type="number" name="product_price" size="10"></p>
                     <p>
                     <p>
                         <input type="submit" name="savebtn" value="Save Order">
                     </p>
-                    <p>
-                        <a class="button_feature" href="view_order.php">View Lists</a>
-                    </p>
-                    <p>
-                        <a id="delete_order" class="button_feature" href="delete_order.php">Delete Order</a>
-                    </p>
-                    <p>
-                        <a class="button_feature" href="edit_order.php">Edit Order</a>
-                    </p>
+                   
                 </form>
             </div>
         </div>
