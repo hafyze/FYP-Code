@@ -17,6 +17,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: ../php/login.php");
+    exit;
+}
+
 if (isset($_SESSION['cart'])) {
     $cartItems = $_SESSION['cart'];
     echo "<h2>Item Cart</h2>";
