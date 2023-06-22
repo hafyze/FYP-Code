@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css" <?php echo time(); ?>>
     <link rel="stylesheet" href="../css/payment.css" <?php echo time(); ?>>
+    <script src="../js/index.js"></script>
 
 </head>
 
@@ -104,9 +105,9 @@ if (isset($_SESSION['cart'])) {
         <form action="processPayment.php" method="POST" enctype="multipart/form-data">
             <div>
                 <label for="paymentMode">Payment Mode:</label>
-                <input type="radio" id="cash" name="paymentMode" value="cash">
+                <input type="radio" id="cash" name="paymentMode" value="cash" class="payment-radio">
                 <label for="cash">Cash</label>
-                <input type="radio" id="bank" name="paymentMode" value="bank">
+                <input type="radio" id="bank" name="paymentMode" value="bank" class="payment-radio">
                 <label for="bank">Bank</label>
             </div>
 
@@ -115,7 +116,8 @@ if (isset($_SESSION['cart'])) {
                 <label for="bankName">Bank Name:</label>
                 <input type="text" id="bankName" name="bankName">
                 <!-- Add more bank details fields as needed -->
-
+            </div>
+            <div id="proof_of_payment">
                 <label for="payProof">Proof of Payment: </label>
                 <input type="file" id="payProof" name="payProof">
             </div>
@@ -128,6 +130,10 @@ if (isset($_SESSION['cart'])) {
         <p>Maybank XXXXXXXX</p> <br>
         <p>Temp de Ventre</p>
     </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </body>
 
 <script src="../js/index.js"></script>
