@@ -52,7 +52,8 @@
     </div>
 
     <?php
-
+        session_start();
+        
         include("../php/dataconnection.php");
 
         // Handle quantity update and item removal
@@ -128,8 +129,12 @@
                 echo "<hr>";
             }
             
-
-            } else {
+            // "Pay Now" button
+            echo '<form action="../php/payment.php" method="POST">';
+            echo '<button type="submit">Pay Now</button>';
+            echo '</form>';
+            } 
+            else {
                 echo "<p>Cart is empty.</p>";
             }
 
