@@ -8,13 +8,13 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
     $quantity = $_POST['quantity'];
 
     // Prepare the SQL statement to insert into the food_order table
-    $sql = "INSERT INTO food_order (order_status, product_id, order_type_id) 
-            VALUES ('In Kitchen', '$productID', '1')";
+    $sql = "INSERT INTO food_order (order_status, product_id, order_type_id, quantity) 
+            VALUES ('In Kitchen', '$productID', '1', '$quantity')";
 
     if ($connection->query($sql) === true) {
-        $orderID = $connection->insert_id;
         // Display success message
-        echo "<p>Product added to cart. Order ID: $orderID</p>";
+        echo "<p>Product added to cart successfully.</p>";
+        header("Location: ../php/cart.php");
     } else {
         // Display error message
         echo "<p>Error adding product to cart: " . $connection->error . "</p>";
