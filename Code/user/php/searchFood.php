@@ -1,42 +1,42 @@
 <?php
-session_start();
-
+// Establish database connection
 include("../php/dataconnection.php");
 
+// Process user input
+if (isset($_GET['keyword'])) {
+    $keyword = $_GET['keyword'];
 
-// Check if the search term is provided in the query parameters
-if (isset($_GET['foodSearch'])) {
-    $searchTerm = $_GET['foodSearch'];
+    // Prepare the SQL statement
+    $sql = "SELECT * FROM product WHERE 
+            product_type LIKE '%$keyword%' OR 
+            product_name LIKE '%$keyword%' OR 
+            product_ingredients LIKE '%$keyword%'";
 
-    // Perform your search logic here
-    $sql = "SELECT * FROM product WHERE product_name LIKE '%$searchTerm%'";
+    // Execute the query
+    $result = $conn->query($sql);
 
-    $result = $connection->query($sql);
-
-    if ($result) {
+    if ($result->num_rows > 0) {
         // Display the search results
-        if ($result->num_rows > 0) {
-            echo "<ul>";
-            while ($row = $result->fetch_assoc()) {
-                $foodName = $row['product_name'];
-                $foodPrice = $row['price'];
-                
-                // Generate HTML content for each search result with "Add to Cart" form
-                echo "<li>$foodName RM$foodPrice";
-                    echo "<form class='add-to-cart-form' action='../php/addCart.php' method='POST'>";
-                        echo "<input type='hidden' name='product' value='$foodName'>";
-                        echo "<input type='number' name='quantity' value='1' min='1'>"; // Input field for quantity
-                        echo "<button type='submit'>Add to Cart</button>";
-                    echo "</form>";
-                echo "</li>";
-            }
-            echo "</ul>";
-        } else {
-            echo "No results found.";
+        echo "<h2>Search Results:</h2>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<p>Product ID: " . $row['product_id'] . "</p>";
+            echo "<p>Product Type: " . $row['product_type'] . "</p>";
+            echo "<p>Product Name: " . $row['product_name'] . "</p>";
+            echo "<p>Product Ingredients: " . $row['product_ingredients'] . "</p>";
+            echo "<p>Price: $" . $row['price'] . "</p>";
+            echo "<hr>";
         }
-    } 
-}
+    } else {
+        echo "<p>No results found.</p>";
+    }
 
-// Close the database connection
-$connection->close();
+    // Close the database connection
+    $connection->close();
+}
 ?>
+
+<!-- HTML form for the search feature -->
+<form method="GET" action="">
+    <input type="text" name="keyword" placeholder="Enter a keyword" required>
+    <button type="submit">Search</button>
+</form>
