@@ -13,17 +13,16 @@ if (isset($_GET['keyword'])) {
             product_ingredients LIKE '%$keyword%'";
 
     // Execute the query
-    $result = $conn->query($sql);
+    $result = $connection->query($sql);
 
     if ($result->num_rows > 0) {
         // Display the search results
         echo "<h2>Search Results:</h2>";
         while ($row = $result->fetch_assoc()) {
-            echo "<p>Product ID: " . $row['product_id'] . "</p>";
             echo "<p>Product Type: " . $row['product_type'] . "</p>";
             echo "<p>Product Name: " . $row['product_name'] . "</p>";
             echo "<p>Product Ingredients: " . $row['product_ingredients'] . "</p>";
-            echo "<p>Price: $" . $row['price'] . "</p>";
+            echo "<p>Price: RM" . $row['price'] . "</p>";
             echo "<hr>";
         }
     } else {
