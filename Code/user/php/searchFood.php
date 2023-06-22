@@ -23,6 +23,15 @@ if (isset($_GET['keyword'])) {
             echo "<p>Product Name: " . $row['product_name'] . "</p>";
             echo "<p>Product Ingredients: " . $row['product_ingredients'] . "</p>";
             echo "<p>Price: RM" . $row['price'] . "</p>";
+
+            // Add to cart form
+            echo '<form action="addCart.php" method="POST">';
+            echo '<input type="hidden" name="product_id" value="' . $row['product_id'] . '">';
+            echo '<label for="quantity">Quantity:</label>';
+            echo '<input type="number" name="quantity" value="1" min="1" required>';
+            echo '<button type="submit">Add to Cart</button>';
+            echo '</form>';
+
             echo "<hr>";
         }
     } else {
