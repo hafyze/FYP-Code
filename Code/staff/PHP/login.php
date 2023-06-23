@@ -1,7 +1,7 @@
 <?php
 // Establish database connection
 
-include("../dataconnection.php");
+include("../php/dataconnection.php");
 
 
 // Handle form submission
