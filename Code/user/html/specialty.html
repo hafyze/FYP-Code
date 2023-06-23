@@ -7,11 +7,12 @@
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css" >
+    <link rel="stylesheet" href="../css/specialty.css">
 
 </head>
 
 <body>
-    <h1>Temp de Ventre</h1>
+    <h1><a href="../html/index.html">Temp de Ventre</a></h1>
 
     <div class="profile">
         
@@ -31,7 +32,7 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="../html/specialty.html">Specialty</a></li>
+                <li><a href="#">Specialty</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="#">Contact Us</a></li>
 				<li><a href="#">Order Now</a></li>
@@ -45,17 +46,18 @@
     </div>
 
     <div style="position: relative;">
-        <form action="../php/searchFood.php" method="GET">
-            <input type="text" name="keyword" placeholder="Enter a keyword" required>
-            <button type="submit">Search</button>
+        <form id="search-form" action="../php/searchFood.php" method="GET">
+            <input type="text" id="search-bar" name="foodSearch" placeholder="Search for food...">
+            <button type="submit" id="search-btn">Search</button>
         </form>
         
         <img src="../img/tdv.jpg" alt="IMG of Restaurant">
         
     </div>
 
-    <div id="aboutUs">
-        
+    <div id="foodList">
+        <h2>Menu</h2>
+        <iframe src="../php/specialty.php" frameborder="0" style="width: 900px;"></iframe>
     </div>
 </body>
 
