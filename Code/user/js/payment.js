@@ -1,6 +1,8 @@
-var paymentMethodSelect = document.getElementById("paymentMethod");
+document.addEventListener("DOMContentLoaded", function () {
+    var paymentMethodSelect = document.getElementById("paymentMethod");
     var extraFieldsContainer = document.getElementById("extraFieldsContainer");
-    var extraFields = document.getElementsByClassName("extra-fields");
+    var extraFields = extraFieldsContainer.getElementsByClassName("extra-fields");
+    var qrCodeImage = document.getElementById("qrCodeImage");
 
     // Initially hide all extra fields
     for (var i = 0; i < extraFields.length; i++) {
@@ -20,4 +22,12 @@ var paymentMethodSelect = document.getElementById("paymentMethod");
         if (selectedFields) {
             selectedFields.style.display = "block";
         }
+
+        // Show QR code image if "QR Code" payment method is selected
+        if (selectedPaymentMethod === "qrcode") {
+            qrCodeImage.style.display = "block";
+        } else {
+            qrCodeImage.style.display = "none";
+        }
+    });
 });

@@ -146,8 +146,9 @@ mysqli_close($connection);
 
     <div id="qrFields" class="extra-fields">
         <label for="qrCode">QR Code:</label>
-        <img src="../img/qrcode.png" alt="QR Code">
+        <img id="qrCodeImage" src="../img/qrcode.png" alt="QR Code" style="display: none;">
     </div>
+
 
     </div>
 
@@ -157,6 +158,8 @@ mysqli_close($connection);
     </form>
 
     <div id="bankContact">
+        <br>
+        <p>Temp de Ventre Bank</p>
         <p>Maybank XXXXXXXX</p> <br>
         <p>Temp de Ventre</p>
     </div>
@@ -164,8 +167,7 @@ mysqli_close($connection);
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/index.js"></script>
-
-    <script src="../js/payment.js">
+    <script src="../js/payment.js"></script>
 </body>
 
 </html>
