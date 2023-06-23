@@ -9,6 +9,6 @@ $connection = new mysqli($host, $user, $password, $dbname);
 
 if (!$connection) {
 
-    echo "Connection failed!";
+    die("ERROR: Could not connect. " . $mysqli->connect_error);
 
 }
