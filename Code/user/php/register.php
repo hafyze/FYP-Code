@@ -12,8 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Insert user into the database
     $sql = "INSERT INTO customer (customer_name, customer_contact, customer_email, customer_pass) 
-            VALUES ('$customer_name', '$customer_contact', '$customer_email', $customer_pass)";
-    
+        VALUES ('$customer_name', '$customer_contact', '$customer_email', '$customer_pass')";
+
     if ($connection->query($sql) === TRUE) {
         header("Location: ../html/index.html");
     } else {
