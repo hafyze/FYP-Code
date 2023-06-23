@@ -5,3 +5,17 @@ img{
 h2{
     text-align: center;
 }
+
+#foodList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#foodList iframe {
+    width: 900px;
+}
+
+td{
+    margin: 4px 5px;
+}
