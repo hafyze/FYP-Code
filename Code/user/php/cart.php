@@ -43,9 +43,9 @@
 
 
     <div style="position: relative;">
-        <form action="../php/searchFood.php" method="GET">
+    <form action="../php/searchFood.php" method="GET">
             <input type="text" name="keyword" placeholder="Enter a keyword" required>
-            <button style="margin: 10px 0" type="submit">Search</button>
+            <button type="submit">Search</button>
         </form>
         
         
