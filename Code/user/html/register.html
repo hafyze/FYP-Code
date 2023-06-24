@@ -9,31 +9,35 @@
 </head>
 
 <body>
+
+    <h1>Temp de Ventre</h1>
+
     <h2>Register</h2>
 
     <form action="../php/register.php" method="POST">
-
-        <label for="customer_name"></label>
-        <input type="text" id="customer_name" name="customer_name" 
-        placeholder="Full Name" required>
+        <label for="customer_name">Full Name:</label>
+        <input type="text" id="customer_name" name="customer_name" placeholder="Full Name" required>
         <br>
-
-        <label for="customer_contact"></label>
-        <input type="text" id="customer_contact" name="customer_contact" 
-        placeholder="Phone Number" required>
+    
+        <label for="customer_contact">Phone Number:</label>
+        <input type="text" id="customer_contact" name="customer_contact" placeholder="Phone Number" required>
         <br>
-
-        <label for="customer_email"></label>
-        <input type="text" id="customer_email" name="customer_email"
-        placeholder="Email" required>
+    
+        <label for="customer_email">Email:</label>
+        <input type="text" id="customer_email" name="customer_email" placeholder="Email" required>
         <br>
-
-        <label for="customer_pass"></label>
-        <input type="password" id="customer_pass" name="customer_pass" 
-        placeholder="Password" required>
+    
+        <label for="customer_pass">Password:</label>
+        <input type="password" id="customer_pass" name="customer_pass" placeholder="Password" required>
         <br>
-
+    
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter Password" required>
+        <br>
+    
         <input type="submit" value="Register">
+    </form>
+    
     </form>
 </body>
 
