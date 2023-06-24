@@ -54,6 +54,11 @@
     <?php
         session_start();
         
+        if (!isset($_SESSION['customer_id'])) {
+            header("Location: ../php/login.php");
+            exit;
+        }
+        
         include("../php/dataconnection.php");
 
         // Handle quantity update and item removal
