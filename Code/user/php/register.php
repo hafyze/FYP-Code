@@ -46,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../html/index.html");
     } else {
         echo "Error: " . $sql . "<br>";
-    }
 }
+
 
 $connection->close();
 ?>
