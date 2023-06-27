@@ -52,100 +52,70 @@
     </div>
 
     <?php
-        session_start();
+session_start();
+
+if (!isset($_SESSION['customer_id'])) {
+    header("Location: ../php/login.php");
+    exit;
+}
+
+include("../php/dataconnection.php");
+
+// Handle adding items to the cart
+if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
+    $productID = $_POST['product_id'];
+    $quantity = $_POST['quantity'];
+    $customerID = $_SESSION['customer_id'];
+
+    // Prepare the SQL statement to insert the item into the cart
+    $sql = "INSERT INTO cart (customer_id, product_id, quantity) VALUES ('$customerID', '$productID', '$quantity')";
+
+    if ($connection->query($sql) === true) {
+        // Display success message or perform any other actions
+        echo "<p>Item added to cart successfully.</p>";
+    } else {
+        // Display error message
+        echo "<p>Error adding item to cart: " . $connection->error . "</p>";
+    }
+}
+
+// Retrieve and display items in the cart
+$sql = "SELECT * FROM cart INNER JOIN product ON cart.product_id = product.product_id WHERE cart.customer_id = '{$_SESSION['customer_id']}'";
+$result = $connection->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<h2>Cart Items:</h2>";
+
+    while ($row = $result->fetch_assoc()) {
+        $productID = $row['product_id'];
+        $productName = $row['product_name'];
+        $quantity = $row['quantity'];
+
+        echo "<p>Product Name: $productName</p>";
+        echo "<p>Quantity: $quantity</p>";
         
-        if (!isset($_SESSION['customer_id'])) {
-            header("Location: ../php/login.php");
-            exit;
-        }
+        // Remove item from cart form
+        echo '<form action="" method="POST">';
+        echo '<input type="hidden" name="product_id" value="' . $productID . '">';
+        echo '<input type="hidden" name="action" value="remove">';
+        echo '<button type="submit">Remove</button>';
+        echo '</form>';
         
-        include("../php/dataconnection.php");
+        echo "<hr>";
+    }
 
-        // Handle quantity update and item removal
-        if (isset($_POST['order_id'])) {
-            $orderID = $_POST['order_id'];
-            $action = $_POST['action'];
+    // "Proceed to Checkout" button
+    echo '<form action="../php/payment.php" method="POST">';
+    echo '<button type="submit">Proceed to Checkout</button>';
+    echo '</form>';
+} else {
+    echo "<p>Cart is empty.</p>";
+}
 
-            if ($action === 'update') {
-                $quantity = $_POST['quantity'];
+// Close the database connection
+$connection->close();
+?>
 
-                // Prepare the SQL statement to update the quantity
-                $sql = "UPDATE food_order SET quantity = '$quantity' WHERE order_id = '$orderID'";
-
-                if ($connection->query($sql) === true) {
-                    // Display success message
-                    echo "<p>Quantity updated successfully.</p>";
-                    header("Location: ../php/cart.php");
-                } else {
-                    // Display error message
-                    echo "<p>Error updating quantity: " . $connection->error . "</p>";
-                }
-            } elseif ($action === 'remove') {
-                // Prepare the SQL statement to delete the item from the cart
-                $sql = "DELETE FROM food_order WHERE order_id = '$orderID'";
-
-                if ($connection->query($sql) === true) {
-                    // Display success message
-                    echo "<p>Item removed from cart successfully.</p>";
-                    header("Location: ../php/cart.php");
-                } else {
-                    // Display error message
-                    echo "<p>Error removing item from cart: " . $connection->error . "</p>";
-                }
-            }
-        }
-
-        // Retrieve and display items in the cart
-        $sql = "SELECT * FROM food_order INNER JOIN product ON food_order.product_id = product.product_id";
-        $result = $connection->query($sql);
-
-        if ($result->num_rows > 0) {
-            echo "<h2>Cart Items:</h2>";
-
-            while ($row = $result->fetch_assoc()) {
-                $orderID = $row['order_id'];
-                $productName = $row['product_name'];
-                $quantity = isset($row['quantity']) ? $row['quantity'] : null;
-            
-                echo "<p>Product Name: $productName</p>";
-            
-                if ($quantity !== null) {
-                    echo "<p>Quantity: $quantity</p>";
-            
-                    // Update quantity form
-                    echo '<form action="" method="POST">';
-                    echo '<input type="hidden" name="order_id" value="' . $orderID . '">';
-                    echo '<input type="hidden" name="action" value="update">';
-                    echo '<label for="quantity">Update Quantity:</label>';
-                    echo '<input type="number" name="quantity" value="' . $quantity . '" min="1" required>';
-                    echo '<button type="submit">Update</button>';
-                    echo '</form>';
-                } else {
-                    echo "<p>Quantity: Not available</p>";
-                }
-            
-                // Remove item form
-                echo '<form action="" method="POST">';
-                echo '<input type="hidden" name="order_id" value="' . $orderID . '">';
-                echo '<input type="hidden" name="action" value="remove">';
-                echo '<button type="submit">Remove</button>';
-                echo '</form>';
-            
-                echo "<hr>";
-            }
-            
-            // "Pay Now" button
-            echo '<form action="../php/payment.php" method="POST">';
-            echo '<button type="submit">Pay Now</button>';
-            echo '</form>';
-            } 
-            else {
-                echo "<p>Cart is empty.</p>";
-            }
-
-            // Close the database connection
-            $connection->close();
-            ?>
 
 </body>
 
