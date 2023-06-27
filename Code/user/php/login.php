@@ -11,7 +11,23 @@
 
 </head>
 
+<style>
+
+    label {
+        text-align: left;
+    }
+    
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+</style>
+
 <body>
+    <h1><a href="../html/index.html">Temp de Ventre</a></h1>
+
     <h2>Login</h2>
 
     <?php if (isset($errorMessage)) { ?>
@@ -19,12 +35,25 @@
     <?php } ?>
 
     <form action="../php/login.php" method="POST">
-        <label for="customer_email">Email:</label>
-        <input type="text" name="customer_email" placeholder="abc@gmail.com" required><br>
+        <div>
+            <label for="customer_email">
+                <i class="fa-solid fa-envelope"></i>
+                Email:
+            </label>
+            <input type="text" name="customer_email" placeholder="abc@gmail.com" required>
+            <br>
+        </div>
 
-        <label for="customer_pass">Password:</label>
-        <input type="password" name="customer_pass" placeholder="123" required><br>
-
+        <div>
+            <label for="customer_pass">
+                <i class="fa-solid fa-lock"></i>
+                Password:
+            </label>
+            <input type="password" name="customer_pass" placeholder="123" required>
+            <br>
+        </div>
+        
+        
         <input type="submit" value="Login">
         
         <?php if (isset($_POST['customer_email'])) { ?>
