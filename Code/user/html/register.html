@@ -3,11 +3,27 @@
 
 <head>
     <title>Temp de Ventre</title>
+
+    <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../css/register.css">
-	<script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
-</head>
 
+
+</head>
+<style>
+
+label {
+    text-align: left;
+}
+  
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+</style>
 <body>
 
     <h1>Temp de Ventre</h1>
@@ -15,30 +31,54 @@
     <h2>Register</h2>
 
     <form action="../php/register.php" method="POST">
-        <label for="customer_name">Full Name:</label>
-        <input type="text" id="customer_name" name="customer_name" placeholder="Full Name" required>
-        <br>
-    
-        <label for="customer_contact">Phone Number:</label>
-        <input type="text" id="customer_contact" name="customer_contact" placeholder="Phone Number" required>
-        <br>
-    
-        <label for="customer_email">Email:</label>
-        <input type="text" id="customer_email" name="customer_email" placeholder="Email" required>
-        <br>
-    
-        <label for="customer_pass">Password:</label>
-        <input type="password" id="customer_pass" name="customer_pass" placeholder="Password" required>
-        <br>
-    
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter Password" required>
-        <br>
-    
+        <div id="customerName">
+            <label for="customer_name">
+                <i class="fa-solid fa-user"></i>
+                Full Name:
+            </label>
+            <input type="text" id="customer_name" name="customer_name" placeholder="Full Name" required>
+            <br>
+        </div>
+
+        <div id="customerNum">
+            <label for="customer_contact">
+                <i class="fa-solid fa-phone"></i>
+                Phone Number:
+            </label>
+            <input type="text" id="customer_contact" name="customer_contact" placeholder="Phone Number" required>
+            <br>
+        </div>
+
+        <div id="customerEmail">
+            <label for="customer_email">
+                <i class="fa-solid fa-envelope"></i>
+                Email:
+            </label>
+            <input type="text" id="customer_email" name="customer_email" placeholder="Email" required>
+            <br>
+        </div>
+
+        <div id="customerPass">
+            <label for="customer_pass">
+                <i class="fa-solid fa-lock"></i>
+                Password:
+            </label>
+            <input type="password" id="customer_pass" name="customer_pass" placeholder="Password" required>
+            <br>
+        </div>
+
+        <div id="confirmPass">
+            <label for="confirm_password">
+                <i class="fa-solid fa-user-lock"></i>
+                Confirm Password:
+            </label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter Password" required>
+            <br>
+        </div>
+        
         <input type="submit" value="Register">
     </form>
     
-    </form>
 </body>
 
 </html>
