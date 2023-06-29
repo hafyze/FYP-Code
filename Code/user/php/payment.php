@@ -51,7 +51,9 @@
             margin: 5px auto;
         }
     </style>
+
     <h2>Cart Details</h2>
+
     <?php
     include("../php/dataconnection.php");
 
@@ -174,9 +176,8 @@
 
             <div id="qrFields" class="extra-fields">
                 <label for="qrCode">QR Code:</label>
-                <img id="qrCodeImage" src="../qrcode.png" alt="QR Code">
+                <img id="qrCodeImage" src="../img/qrcode.png" alt="QR Code">
             </div>
-
         </div>
 
         <button type="submit" class="btn btn-primary">Proceed to Payment</button>
