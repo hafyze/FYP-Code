@@ -29,13 +29,32 @@ $row = mysqli_fetch_assoc($result);
 
 </head>
 
+<style>
+    body{
+        margin: 0;
+        text-align: center;
+    }
+</style>
+
 <body>
     <h1><a href="../html/index.html">Temp De Ventre</a></h1>
-    <h2>User Profile</h2>
-    <p>Name: <?php echo $row['customer_name']; ?></p>
-    <p>Contact: <?php echo $row['customer_contact']; ?></p>
-    <p>Email: <?php echo $row['customer_email']; ?></p>
+    <h2><i class="fa-solid fa-user"></i> User Profile</h2>
 
-    <a href="../php/editProfile.php">Edit Profile</a>
+    <p><i class="fa-solid fa-signature"></i>
+     Name: <?php echo $row['customer_name']; ?>
+    </p>
+
+    <p><i class="fa-solid fa-phone"></i> 
+     Contact: <?php echo $row['customer_contact']; ?>
+    </p>
+
+    <p><i class="fa-solid fa-envelope"></i> 
+    Email: <?php echo $row['customer_email']; ?>
+    </p>
+
+    <a href="../php/editProfile.php">
+        <i class="fa-regular fa-pen-to-square"></i>
+        Edit Profile
+    </a>
 </body>
 </html>

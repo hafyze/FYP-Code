@@ -12,19 +12,57 @@
 
 </head>
 
+<style>
+    /* Profile styles */
+    .profile {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .profile-link {
+        display: inline-block;
+        text-decoration: none;
+        color: #333;
+        margin: 5px;
+    }
+
+    .profile-link i {
+        display: block;
+        font-size: 24px;
+    }
+
+    /* Logout form styles */
+    .logout-form {
+        text-align: right;
+        margin-top: 20px;
+    }
+
+    .logout-form input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .logout-form input[type="submit"]:hover {
+        background-color: #555;
+    }
+</style>
+
 <body>
-    <h1>Temp de Ventre</h1>
+    <h1><a href="../html/index.html">Temp de Ventre</a></h1>
 
     <div class="profile">
-        
-        <a href="../php/profile.php">
+        <a class="profile-link" href="../php/profile.php">
             <i class="fa-solid fa-user"></i>
             <p>User Profile</p>
         </a>
     </div>
 
-    <form action="../php/logout.php" method="POST">
-        <input style="float: right;" type="submit" value="Logout">
+    <form class="logout-form" action="../php/logout.php" method="POST">
+        <input type="submit" value="Logout">
     </form>
         
 
@@ -42,10 +80,11 @@
         </nav>
     </header>
 
+    <h1>Cart</h1>
 
     <div style="position: relative;">
     <form action="../php/searchFood.php" method="GET">
-            <input type="text" name="keyword" placeholder="Enter a keyword" required>
+            <input type="text" name="keyword" placeholder="Search name or type" required>
             <button type="submit">Search</button>
         </form>
         
