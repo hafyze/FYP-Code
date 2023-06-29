@@ -26,8 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Show QR code image if "QR Code" payment method is selected
         if (selectedPaymentMethod === "qrcode") {
             qrCodeImage.style.display = "block";
+            preloadImage(qrCodeImage.src); // Preload the image
         } else {
             qrCodeImage.style.display = "none";
         }
     });
+
+    // Function to preload an image
+    function preloadImage(url) {
+        var img = new Image();
+        img.src = url;
+    }
 });
