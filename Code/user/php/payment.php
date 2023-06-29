@@ -50,6 +50,10 @@
             max-width: 300px; 
             margin: 5px auto;
         }
+
+        h3{
+            text-align: center;
+        }
     </style>
 
     <h2>Cart Details</h2>
@@ -171,12 +175,13 @@
                 <div class="form-group">
                     <label for="proofOfPayment">Proof of Payment:</label>
                     <input type="file" id="proofOfPayment" name="proofOfPayment" class="form-control-file">
+                    <p>Bank account provided below</p>
                 </div>
             </div>
 
             <div id="qrFields" class="extra-fields">
                 <label for="qrCode">QR Code:</label>
-                <img id="qrCodeImage" src="../img/qrcode.png" alt="QR Code">
+                <p>Scan the code below</p>
             </div>
         </div>
 
@@ -184,9 +189,11 @@
     </form>
 
     <div id="bankContact" class="mt-4">
+        <h3>Bank Details</h3>
         <p>Temp de Ventre Bank</p>
         <p>Maybank XXXXXXXX</p>
         <p>Temp de Ventre</p>
+        <img id="qrCodeImage" name="qrCode" src="../img/qrcode.png" alt="QR Code" style="width:100px">
     </div>
 
 
