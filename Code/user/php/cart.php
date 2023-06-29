@@ -6,6 +6,7 @@
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css" <?php echo time(); ?>>
     <link rel="stylesheet" href="../css/cart.css" <?php echo time(); ?>>
 
@@ -61,61 +62,63 @@ if (!isset($_SESSION['customer_id'])) {
 
 include("../php/dataconnection.php");
 
-// Handle adding items to the cart
-if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
+if (isset($_POST['product_id']) && isset($_POST['action']) && $_POST['action'] === 'remove') {
     $productID = $_POST['product_id'];
-    $quantity = $_POST['quantity'];
     $customerID = $_SESSION['customer_id'];
 
-    // Prepare the SQL statement to insert the item into the cart
-    $sql = "INSERT INTO cart (customer_id, product_id, quantity) VALUES ('$customerID', '$productID', '$quantity')";
+    $sql = "DELETE FROM cart WHERE customer_id = '$customerID' AND product_id = '$productID'";
 
     if ($connection->query($sql) === true) {
-        // Display success message or perform any other actions
-        echo "<p>Item added to cart successfully.</p>";
-    } else {
-        // Display error message
-        echo "<p>Error adding item to cart: " . $connection->error . "</p>";
-    }
+        echo "<p>Item removed from cart successfully.</p>";
+    } 
 }
 
-// Retrieve and display items in the cart
-$sql = "SELECT * FROM cart INNER JOIN product ON cart.product_id = product.product_id WHERE cart.customer_id = '{$_SESSION['customer_id']}'";
+$sql = "SELECT * FROM cart INNER JOIN product 
+        ON cart.product_id = product.product_id 
+        WHERE cart.customer_id = '{$_SESSION['customer_id']}'";
 $result = $connection->query($sql);
 
 if ($result->num_rows > 0) {
     echo "<h2>Cart Items:</h2>";
 
+    $totalPrice = 0; 
+
     while ($row = $result->fetch_assoc()) {
         $productID = $row['product_id'];
         $productName = $row['product_name'];
         $quantity = $row['quantity'];
+        $price = $row['price'];
+        $subtotal = $quantity * $price; 
+        $totalPrice += $subtotal; 
 
-        echo "<p>Product Name: $productName</p>";
-        echo "<p>Quantity: $quantity</p>";
+        echo "<p> <i class='fas fa-utensils'></i>        Food: $productName</p>";
+        echo "<p> <i class='fa-solid fa-database'></i>   Quantity : $quantity</p>";
+        echo "<p> <i class='fa-solid fa-money-bill'></i> Price : RM $price</p>";
+        echo "<p> <i class='fa-solid fa-money-bill'></i> Subtotal : RM $subtotal</p>";
         
-        // Remove item from cart form
+
+        // Delete order from cart
         echo '<form action="" method="POST">';
         echo '<input type="hidden" name="product_id" value="' . $productID . '">';
         echo '<input type="hidden" name="action" value="remove">';
-        echo '<button type="submit">Remove</button>';
+        echo '<button type="submit" class="btn btn-danger">Delete</button>';
         echo '</form>';
-        
+
         echo "<hr>";
     }
 
-    // "Proceed to Checkout" button
+    echo "<p><i class='fa-solid fa-money-bill'></i> Total Price : RM $totalPrice</p>";
+
+    // proceed to payment page
     echo '<form action="../php/payment.php" method="POST">';
-    echo '<button type="submit">Proceed to Checkout</button>';
+    echo '<button type="submit" class="btn btn-primary">Proceed to Checkout</button>';
     echo '</form>';
 } else {
     echo "<p>Cart is empty.</p>";
 }
 
-// Close the database connection
 $connection->close();
 ?>
-
 
 </body>
 
