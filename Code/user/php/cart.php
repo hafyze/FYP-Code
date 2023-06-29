@@ -55,7 +55,7 @@
 session_start();
 
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: ../php/login.php");
+    header("Location: ../html/login.html");
     exit;
 }
 

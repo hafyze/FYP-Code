@@ -31,11 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else {
             $errorMessage = "Invalid password";
-            echo "<script>alert('Invalid email or password');</script>";
+            echo "<script>alert('Invalid email or password'); window.location.href = '../html/login.html';</script>";
         }
     } else {
         $errorMessage = "Invalid email";
-        echo "<script>alert('Invalid email or password');</script>";
+        echo "<script>alert('Invalid email or password'); window.location.href = '../html/login.html';</script>";
     }
 }
 ?>
