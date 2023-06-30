@@ -13,7 +13,7 @@
     <style>
         /* Additional custom styles go here */
         body {
-            padding-top: 50px;
+            padding-top: 0;
         }
 
         header {
@@ -172,16 +172,18 @@
         </nav>
     </header>
 
-    <div id="cart-section">
+    <div id="cart-section" style="margin: 4px auto;">
         <h2><a href="../php/cart.php">Cart</a></h2>
+
+        <div id="search-form">
+            <form action="../php/searchFood.php" method="GET">
+                <input type="text" name="keyword" placeholder="Enter a keyword" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </div>
 
-    <div id="search-form">
-        <form action="../php/searchFood.php" method="GET">
-            <input type="text" name="keyword" placeholder="Enter a keyword" required>
-            <button type="submit">Search</button>
-        </form>
-    </div>
+    
     
     <img id="mainImg" src="../img/tdv.jpg" alt="IMG of Restaurant">
     
