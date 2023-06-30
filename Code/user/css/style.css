@@ -68,3 +68,40 @@ h1{
 form, h2{
     text-align: center;
 }
+
+/* Profile styles */
+.profile {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    margin: 5px;
+}
+
+.profile-link i {
+    display: block;
+    font-size: 24px;
+}
+
+/* Logout form styles */
+.logout-form {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.logout-form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-form input[type="submit"]:hover {
+    background-color: #555;
+}
