@@ -5,30 +5,143 @@
     <title>Temp de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="../css/style.css" >
-    <link rel="stylesheet" href="../specialty.css">
+    <link rel="stylesheet" href="../css/specialty.css">
 
     <style>
-        table {
-            margin: 0 auto;
+        /* Additional custom styles go here */
+        body {
+            padding-top: 50px;
         }
 
-        th, td {
-            padding: 10px;
+        header {
+            background-color: #f8f8f8;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            border-radius: 5px; /* Add border radius */
+        }
+
+        #navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
             text-align: center;
-            margin: 5px;
+        }
+
+        #navbar ul li {
+            display: inline-block;
+            border-radius: 8px;
+        }
+
+        #navbar ul li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            
+            transition: all 0.3s ease;
+        }
+
+        #navbar ul li a:hover {
+            background-color: #f5f5f5;
+        }
+
+        #cart-section {
+            text-align: right;
+            margin-top: 30px;
+        }
+
+        #cart-section a {
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        #cart-section a:hover {
+            color: #23527c;
+        }
+
+        #search-form {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #search-form input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+
+        #search-form button[type="submit"] {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #337ab7;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #mainImg {
+            display: block;
+            margin: 30px auto;
+            max-width: 100%;
+            height: auto;
         }
 
         #foodList {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-top: 30px;
         }
 
-        #foodList iframe {
-            width: 900px;
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
         }
+
+        /* Profile styles */
+    .profile {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .profile-link {
+        display: inline-block;
+        text-decoration: none;
+        color: #333;
+        margin: 5px;
+    }
+
+    .profile-link i {
+        display: block;
+        font-size: 24px;
+    }
+
+    /* Logout form styles */
+    .logout-form {
+        text-align: right;
+        margin-top: 20px;
+    }
+
+    .logout-form input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .logout-form input[type="submit"]:hover {
+        background-color: #555;
+    }
     </style>
 </head>
 
@@ -36,25 +149,25 @@
     <h1><a href="../html/index.html">Temp de Ventre</a></h1>
 
     <div class="profile">
-        <a href="../php/profile.php">
+        <a class="profile-link" href="../php/profile.php">
             <i class="fa-solid fa-user"></i>
             <p>User Profile</p>
         </a>
     </div>
 
-    <form action="../php/logout.php" method="POST">
-        <input style="float: right;" type="submit" value="Logout">
+    <form class="logout-form" action="../php/logout.php" method="POST">
+        <input type="submit" value="Logout">
     </form>
         
     <header>
         <nav id="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="../html/index.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Specialty</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="#">Contact Us</a></li>
-				<li><a href="#">Order Now</a></li>
+                <li><a href="#">Order Now</a></li>
             </ul>
         </nav>
     </header>
@@ -63,22 +176,20 @@
         <h2><a href="../php/cart.php">Cart</a></h2>
     </div>
 
-    <div style="position: relative;">
+    <div id="search-form">
         <form action="../php/searchFood.php" method="GET">
             <input type="text" name="keyword" placeholder="Enter a keyword" required>
             <button type="submit">Search</button>
         </form>
-        
-        <img id="mainImg" src="../img/tdv.jpg" alt="IMG of Restaurant">
     </div>
     
-    <h2>Menu</h2>
+    <img id="mainImg" src="../img/tdv.jpg" alt="IMG of Restaurant">
+    
     <div id="foodList">
-        
         <iframe src="../php/specialty.php" frameborder="0"></iframe>
     </div>
-</body>
 
-<script src="../js/index.js"></script>
+    <script src="../js/index.js"></script>
+</body>
 
 </html>

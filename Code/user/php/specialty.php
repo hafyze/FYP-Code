@@ -5,52 +5,88 @@
     <title>Temp de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css" <?php echo time()?>>
-    <link rel="stylesheet" href="../css/specialty.css"<?php echo time()?>>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/specialty.css?v=<?php echo time(); ?>">
 </head>
 
 <style>
     table {
-            margin: 0 auto;
+        margin: 0 auto;
     }
         
-    th, td 
-    {
-        padding: 2px 5px;
+    th, td {
+        padding: 10px;
         text-align: center;
-        margin: 5px;
+    }
+
+    .menu-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .menu-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .menu-header h2 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .menu-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .menu-table th,
+    .menu-table td {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .menu-table th {
+        background-color: #f8f8f8;
     }
 </style>
 
-<?php 
-    include("../php/dataconnection.php");
+<body>
+    <div class="menu-container">
+        <div class="menu-header">
+            <h2>Menu</h2>
+        </div>
 
-    $sql = "SELECT * FROM product";
-    $result = $connection->query($sql);
+        <table class="menu-table">
+            <tr>
+                <th>Food</th>
+                <th>Main Ingredient</th>
+                <th>Price</th>
+            </tr>
+            <?php 
+            include("../php/dataconnection.php");
 
-    if ($result->num_rows > 0) {
-        echo "<table>";
-        echo "<tr><th>Food Category</th><th>Food</th><th>Main Ingredient</th><th>Price</th></tr>";
-    
-        while ($row = $result->fetch_assoc()) {
-            $productType = $row['product_type'];
-            $productName = $row['product_name'];
-            $productIngredient = $row['product_ingredients'];
-            $price = $row['price'];
-    
-            echo "<tr>";
-            echo "<td>$productType</td>";
-            echo "<td>$productName</td>";
-            echo "<td>$productIngredient</td>";
-            echo "<td>$price</td>";
-            echo "</tr>";
-        }
-    
-        echo "</table>";
-    } else {
-        echo "No products available.";
-    }
-?>
+            $sql = "SELECT * FROM product";
+            $result = $connection->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $productName = $row['product_name'];
+                    $productIngredient = $row['product_ingredients'];
+                    $price = $row['price'];
+
+                    echo "<tr>";
+                    echo "<td>$productName</td>";
+                    echo "<td>$productIngredient</td>";
+                    echo "<td>$price</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>No products available.</td></tr>";
+            }
+            ?>
+        </table>
+    </div>
+</body>
+
 </html>

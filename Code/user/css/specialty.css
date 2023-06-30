@@ -1,21 +1,110 @@
-img{
-    width: 550px;
+body {
+    padding-top: 50px;
 }
 
-h2{
+header {
+    background-color: #f8f8f8;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     text-align: center;
+}
+
+#navbar ul li {
+    display: inline-block;
+}
+
+#navbar ul li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#navbar ul li a:hover {
+    background-color: #f5f5f5;
+}
+
+#cart-section {
+    text-align: right;
+    margin-top: 30px;
+}
+
+#cart-section a {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+#cart-section a:hover {
+    color: #23527c;
+}
+
+#search-form {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#search-form input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+#search-form button {
+    padding: 10px 20px;
+    background-color: #23527c;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#search-form button:hover {
+    background-color: #16324d;
+}
+
+#mainImg {
+    display: block;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 #foodList {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
 #foodList iframe {
-    width: 900px;
-}
-
-td{
-    margin: 4px 5px;
+    width: 300px;
+    height: 400px;
+    margin: 10px;
+    border: none;
 }
