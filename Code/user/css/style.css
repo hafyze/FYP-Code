@@ -90,7 +90,7 @@ form, h2{
 /* Logout form styles */
 .logout-form {
     text-align: right;
-    margin-top: 20px;
+    margin: 50px 30px;
 }
 
 .logout-form input[type="submit"] {
@@ -104,4 +104,9 @@ form, h2{
 
 .logout-form input[type="submit"]:hover {
     background-color: #555;
+}
+
+#cart-section {
+    text-align: right;
+    margin-top: 0;
 }
