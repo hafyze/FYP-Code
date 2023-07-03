@@ -11,6 +11,13 @@
 
 </head>
 
+<style>
+    .quantity-input{
+        margin: 0 auto;
+       width: 80px;
+}
+</style>
+
 <body>
     
 <div class="profile">
