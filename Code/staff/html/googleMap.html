@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Staff Dashboard</title>
+  <style>
+    /* Reset default browser styles */
+    body, h1, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+      background-color: #f2f2f2;
+      width: 250px;
+      padding: 20px;
+      float: left;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    /* Main content styles */
+    .content {
+      padding: 20px;
+      margin-left: 270px;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      clear: both;
+    }
+
+    /* Delivery features */
+    .delivery-section {
+      margin-top: 20px;
+    }
+
+    .delivery-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .delivery-card .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .delivery-card .description {
+      color: #777;
+    }
+
+    .delivery-card .status {
+      margin-top: 5px;
+    }
+
+    .delivery-card .status span {
+      font-weight: bold;
+    }
+
+    .delivery-card .status .delivered {
+      color: green;
+    }
+
+    .delivery-card .status .pending {
+      color: orange;
+    }
+
+    /* Check-in/out features */
+    .check-in-out-section {
+      margin-top: 20px;
+    }
+
+    .check-in-out-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .check-in-out-card .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .check-in-out-card .timestamp {
+      color: #777;
+    }
+
+    .check-in-out-card .check-button {
+      margin-top: 5px;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+  <script>
+    // Initialize the map
+    function initMap() {
+      // Specify the coordinates for the map center
+      var mapCenter = { lat: 37.7749, lng: -122.4194 };
+
+      // Create a new map instance
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: mapCenter,
+        zoom: 12, // Adjust the zoom level as desired
+      });
+
+      // Add a marker to the map
+      var marker = new google.maps.Marker({
+        position: mapCenter,
+        map: map,
+        title: "Your Location",
+      });
+    }
+
+    function changeDeliveryStatus(cardId, newStatus) {
+      var deliveryCard = document.getElementById(cardId);
+      var statusSpan = deliveryCard.querySelector(".status span");
+      statusSpan.textContent = newStatus;
+
+      if (newStatus === "Delivered") {
+        statusSpan.classList.remove("pending");
+        statusSpan.classList.add("delivered");
+      } else if (newStatus === "Pending") {
+        statusSpan.classList.remove("delivered");
+        statusSpan.classList.add("pending");
+      }
+    }
+
+    function checkIn() {
+      var checkInCard = document.getElementById("check-in-card");
+      var timestamp = new Date().toLocaleString();
+      checkInCard.innerHTML = `
+        <div class="title">Check-in</div>
+        <div class="timestamp">Timestamp: ${timestamp}</div>
+      `;
+    }
+
+    function checkOut() {
+      var checkOutCard = document.getElementById("check-out-card");
+      var timestamp = new Date().toLocaleString();
+      checkOutCard.innerHTML = `
+        <div class="title">Check-out</div>
+        <div class="timestamp">Timestamp: ${timestamp}</div>
+      `;
+    }
+
+    // Call the initMap function when the Google Maps API has loaded
+    google.maps.event.addDomListener(window, "load", initMap);
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Staff Dashboard</h1>
+  </header>
+
+  <div class="sidebar">
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Tasks</a></li>
+      <li><a href="#">Messages</a></li>
+      <li><a href="#">Calendar</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <h2>Welcome, [Staff Name]</h2>
+
+    <!-- Delivery features -->
+    <div class="delivery-section">
+      <h3>Delivery</h3>
+
+      <div class="delivery-card" id="delivery-card-1">
+        <div class="title">Package 1</div>
+        <div class="description">Nasi Lemak Wanjo</div>
+        <div class="status">
+          Status: <span class="delivered">Delivered</span>
+        </div>
+        <div>
+          <button onclick="changeDeliveryStatus('delivery-card-1', 'Pending')">Set as Pending</button>
+          <button onclick="changeDeliveryStatus('delivery-card-1', 'Delivered')">Set as Delivered</button>
+        </div>
+      </div>
+
+      <div class="delivery-card" id="delivery-card-2">
+        <div class="title">Package 2</div>
+        <div class="description">Pizza Hawaiian.</div>
+        <div class="status">
+          Status: <span class="pending">Pending</span>
+        </div>
+        <div>
+          <button onclick="changeDeliveryStatus('delivery-card-2', 'Pending')">Set as Pending</button>
+          <button onclick="changeDeliveryStatus('delivery-card-2', 'Delivered')">Set as Delivered</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Check-in/out features -->
+    <div class="check-in-out-section">
+      <h3>Check-in/out</h3>
+
+      <div class="check-in-out-card" id="check-in-card">
+        <div class="title">Check-in</div>
+        <div class="timestamp">Timestamp: [Check-in Time]</div>
+        <div class="check-button">
+          <button onclick="checkIn()">Check-in</button>
+        </div>
+      </div>
+
+      <div class="check-in-out-card" id="check-out-card">
+        <div class="title">Check-out</div>
+        <div class="timestamp">Timestamp: [Check-out Time]</div>
+        <div class="check-button">
+          <button onclick="checkOut()">Check-out</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Map -->
+    <div id="map"></div>
+
+    <!-- Place your additional content here -->
+  </div>
+
+  <footer>
+    &copy; 2023 Staff Dashboard
+  </footer>
+</body>
+</html>

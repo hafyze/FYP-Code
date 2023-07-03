@@ -1,32 +1,35 @@
 <?php
 // Establish database connection
 
-include("../dataconnection.php");
+include("../PHP/dataconnection.php");
 
 
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve login form data
-    $staff_email = $_POST["staff_email"];
-    $staff_pass = $_POST["staff_pass"];
+// Retrieve the submitted staff ID and password from the form
+$staffID = $_POST['staff-id'];
+$password = $_POST['password'];
 
-    // Check customer from DB
-    $sql = "SELECT * FROM staff
-            WHERE staff_email = '$staff_email' AND staff_pass = '$staff_pass'";
-    
-    $result = $connection->query($sql);
+// Prepare and execute a query to retrieve the staff record based on the provided staff ID
+$stmt = $connection->prepare("SELECT * FROM staff WHERE staff_id = ?");
+$stmt->bind_param("i", $staffID);
+$stmt->execute();
 
-    //Checks if customer is available from DB
-    if ($result-> num_rows > 0) {
-        $_SESSION["staff_email"] = $staff_email;
-        echo "Login successful!";
-        //Redirect to index.html
-        header("Location: ../stafftest.html");
-    } else {
-        echo "Invalid username or password";
-    }
+// Fetch the result
+$result = $stmt->get_result();
+
+// Check if a matching staff record was found and the entered password is correct
+if ($result->num_rows === 1) {
+  $row = $result->fetch_assoc();
+  if (password_verify($password, $row['staff_pass'])) {
+    // Redirect to the staff dashboard upon successful login
+    header("Location: googledash.php");
+    exit();
+  }
 }
 
-// Close database connection
+// Display an error message if the login failed
+echo "Invalid staff ID or password.";
+
+// Close the prepared statement and database connection
+$stmt->close();
 $connection->close();
 ?>
