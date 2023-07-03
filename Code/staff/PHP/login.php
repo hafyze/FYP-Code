@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["staff_email"] = $staff_email;
         echo "Login successful!";
         //Redirect to index.html
-        header("Location: ../index.html");
+        header("Location: ../stafftest.html");
     } else {
         echo "Invalid username or password";
     }
