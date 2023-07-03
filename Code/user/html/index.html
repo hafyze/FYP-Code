@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css" >
+    <link rel="stylesheet" href="../css/navStyle.css">
 
 </head>
 
@@ -50,8 +51,6 @@
 </style>
 
 <body>
-    <h1>Temp de Ventre</h1>
-
     <div class="profile">
         <a class="profile-link" href="../php/profile.php">
             <i class="fa-solid fa-user"></i>
@@ -67,16 +66,22 @@
     <header>
         <nav id="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
+                <a href="../html/index.html" id="homeText" ><h1 >Temp de Ventre</h1></a>
+                <li><a href="../html/index.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="#">Contact Us</a></li>
-				<li><a href="#">Order Now</a></li>
-				
             </ul>
         </nav>
     </header>
+
+    
+
+      
+    <img id="mainImg" src="../img/tdv.jpg" alt="IMG of Restaurant" style="margin: 150px auto 0 auto;">
+        
+    
 
     <div id="cart-section">
         <h2><a href="../php/cart.php">Cart</a></h2>
@@ -87,10 +92,7 @@
             <input type="text" name="keyword" placeholder="Enter a keyword" required>
             <button type="submit">Search</button>
         </form>
-        
-        <img id="mainImg" src="../img/tdv.jpg" alt="IMG of Restaurant">
-        
-    </div>
+    </div> 
 
     <div id="aboutUs">
         
