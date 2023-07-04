@@ -1,57 +1,74 @@
 <!DOCTYPE html>
 <html>
-	
 <head>
-	<title>Login to Staff Portal</title>
-		<meta charset="utf-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link href="css/style.css" rel='stylesheet' type='text/css' />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<!--webfonts-->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,300,600,700' rel='stylesheet' type='text/css'>
-		<!--//webfonts-->
+  <meta charset="UTF-8">
+  <title>Staff Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .login-container {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 100px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-input {
+      margin-bottom: 15px;
+    }
+
+    .form-input label {
+      font-weight: bold;
+      display: block;
+    }
+
+    .form-input input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-input input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-
-<header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
-  <div class="container">
-    <img src="../photo/icons8-company-100.png" width="150px">   
+  <div class="login-container">
+    <h2>Staff Login</h2>
+    <form class="login-form" action="../PHP/login.php" method="post">
+      <div class="form-input">
+        <label for="staff_id">Staff ID:</label>
+        <input type="text" id="staff-id" name="staff_id" required>
+      </div>
+      <div class="form-input">
+        <label for="staff_pass">Password:</label>
+        <input type="password" id="password" name="staff_pass" required>
+      </div>
+      <div class="form-input">
+        <input type="submit" value="Login">
+      </div>
+    </form>
   </div>
-</header>
-
-
-	 <!-----start-main---->
-	 <div class="main">
-		<div class="login-form">
-			<h1>Staff Login</h1>
-					<div class="head">
-						<img src="../photo/icons8-manager-94.png" alt=""/>
-					</div>
-					<form action="../html/stafftest.html" method="POST">
-						<input type="text" class="text" value="USERNAME" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'USERNAME';}" >
-						<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-						<div class="submit">
-							<button type="submit" class="btn btn-primary" onclick="myFunction()" value="LOGIN" style="width:95%">LOGIN</button>
-					</div>	
-						<p><a href="#">Forgot Password ?</a></p>
-				</form>
-			</div>
-			<!--//End-login-form-->
-		
-
-			 <!-----start-copyright---->
-      		    
-        			 <div class=" footer container">
-                        <div class="copy-right">
-                            <p>All rights resereved by Temps de Ventre
-                            </p> 
-                        </div>
-                    </div>
-                 
-				<!-----//end-copyright---->
-		</div>
-			 <!-----//end-main---->
-		 		
 </body>
 </html>

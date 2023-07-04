@@ -123,7 +123,41 @@
       margin-top: 5px;
     }
   </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
   <script>
+    // Initialize the map
+    function initMap() {
+      // Specify the coordinates for the map center
+      var mapCenter = { lat: 37.7749, lng: -122.4194 };
+
+      // Create a new map instance
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: mapCenter,
+        zoom: 12, // Adjust the zoom level as desired
+      });
+
+      // Add a marker to the map
+      var marker = new google.maps.Marker({
+        position: mapCenter,
+        map: map,
+        title: "Your Location",
+      });
+    }
+
+    function changeDeliveryStatus(cardId, newStatus) {
+      var deliveryCard = document.getElementById(cardId);
+      var statusSpan = deliveryCard.querySelector(".status span");
+      statusSpan.textContent = newStatus;
+
+      if (newStatus === "Delivered") {
+        statusSpan.classList.remove("pending");
+        statusSpan.classList.add("delivered");
+      } else if (newStatus === "Pending") {
+        statusSpan.classList.remove("delivered");
+        statusSpan.classList.add("pending");
+      }
+    }
+
     function checkIn() {
       var checkInCard = document.getElementById("check-in-card");
       var timestamp = new Date().toLocaleString();
@@ -141,13 +175,16 @@
         <div class="timestamp">Timestamp: ${timestamp}</div>
       `;
     }
+
+    // Call the initMap function when the Google Maps API has loaded
+    google.maps.event.addDomListener(window, "load", initMap);
   </script>
 </head>
 <body>
   <header>
     <h1>Staff Dashboard</h1>
   </header>
-  
+
   <div class="sidebar">
     <ul>
       <li><a href="#">Dashboard</a></li>
@@ -165,19 +202,27 @@
     <div class="delivery-section">
       <h3>Delivery</h3>
 
-      <div class="delivery-card">
+      <div class="delivery-card" id="delivery-card-1">
         <div class="title">Package 1</div>
         <div class="description">Nasi Lemak Wanjo</div>
         <div class="status">
           Status: <span class="delivered">Delivered</span>
         </div>
+        <div>
+          <button onclick="changeDeliveryStatus('delivery-card-1', 'Pending')">Set as Pending</button>
+          <button onclick="changeDeliveryStatus('delivery-card-1', 'Delivered')">Set as Delivered</button>
+        </div>
       </div>
 
-      <div class="delivery-card">
+      <div class="delivery-card" id="delivery-card-2">
         <div class="title">Package 2</div>
         <div class="description">Pizza Hawaiian.</div>
         <div class="status">
           Status: <span class="pending">Pending</span>
+        </div>
+        <div>
+          <button onclick="changeDeliveryStatus('delivery-card-2', 'Pending')">Set as Pending</button>
+          <button onclick="changeDeliveryStatus('delivery-card-2', 'Delivered')">Set as Delivered</button>
         </div>
       </div>
     </div>
@@ -203,6 +248,9 @@
       </div>
     </div>
 
+    <!-- Google Map -->
+    <div id="map"></div>
+
     <!-- Place your additional content here -->
   </div>
 
@@ -211,4 +259,3 @@
   </footer>
 </body>
 </html>
-
