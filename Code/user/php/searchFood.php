@@ -25,9 +25,9 @@
 
 <body>
     
-<div class="profile">
+    <div class="profile">
         <a class="profile-link" href="../php/profile.php">
-            <i class="fa-solid fa-user"></i>
+            <i class="fas fa-solid fa-user"></i>
             <p>User Profile</p>
         </a>
     </div>

@@ -9,6 +9,7 @@
     <title>Temp de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css" <?php echo time(); ?>>
     <link rel="stylesheet" href="../css/payment.css" <?php echo time(); ?>>
@@ -17,17 +18,18 @@
 </head>
 
 <body>
-    <h1><a href="../html/index.html">Temp de Ventre</a></h1>
+    <h1 class="restText"><a href="../html/index.html">Temp de Ventre</a></h1>
 
     <div class="profile">
-        <a href="../php/profile.php">
+        <a class="profile-link" href="../php/profile.php">
             <i class="fa-solid fa-user"></i>
             <p>User Profile</p>
         </a>
     </div>
 
-    <form action="../php/logout.php" method="POST">
-        <input style="float: right;" type="submit" value="Logout">
+    <form class="logout-form" action="../php/logout.php" method="POST">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <input type="submit" value="Logout">
     </form>
 
 
@@ -35,12 +37,12 @@
 
         <nav id="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="../html/index.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Specialty</a></li>
+                <li><a href="../html/specialty.html">Specialty</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Order Now</a></li>
+                <li><a href="#">Cart</a></li>
             </ul>
         </nav>
     </header>

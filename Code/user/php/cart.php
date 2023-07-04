@@ -18,6 +18,15 @@
         background-color: #ffffff;
         background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);       
     }
+
+    header{
+        border-radius: 20px;
+    }
+
+    h1{
+
+    }
+
     .profile {
         text-align: center;
         margin-top: 20px;
@@ -56,7 +65,7 @@
 </style>
 
 <body>
-    <h1><a href="../html/index.html">Temp de Ventre</a></h1>
+    <h1 ><a href="../html/index.html">Temp de Ventre</a></h1>
 
     <div class="profile">
         <a class="profile-link" href="../php/profile.php">
@@ -78,21 +87,21 @@
                 <li><a href="../html/specialty.html">Specialty</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="#">Contact Us</a></li>
-				<li><a href="#">Order Now</a></li>
+				<li><a href="#">Cart</a></li>
 				
             </ul>
         </nav>
     </header>
 
-    <h1>Cart</h1>
+    <div id="cart-section" style="margin: 4px auto;">
+        <h1><a href="../php/cart.php">Cart</a></h1>
 
-    <div style="position: relative;">
-    <form action="../php/searchFood.php" method="GET">
-            <input type="text" name="keyword" placeholder="Search name or type" required>
-            <button type="submit">Search</button>
-        </form>
-        
-        
+        <div id="search-form">
+            <form action="../php/searchFood.php" method="GET">
+                <input type="text" name="keyword" placeholder="Search for Food Here" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </div>
 
     <?php
