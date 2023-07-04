@@ -93,6 +93,7 @@
         #mainImg {
             display: block;
             margin: 30px auto;
+            width: 500px;
             max-width: 100%;
             height: auto;
         }
@@ -143,11 +144,32 @@
     .logout-form input[type="submit"]:hover {
         background-color: #555;
     }
+
+    .restText{
+        margin: 5px auto;
+        width: fit-content;
+        background-color: #333;
+        padding: 5px;
+        border-radius: 10px;
+    }
+    .restText:hover{
+        text-decoration: none;
+        background-color: #555;
+        border-radius: 10px;
+        padding: 8px;
+        transition-duration: 1.3s;
+    }
+
+    .restText a{
+        color: white;
+    }
+    .restText a:hover{
+        text-decoration: none;
+    }
     </style>
 </head>
 
 <body>
-    <h1><a href="../html/index.html">Temp de Ventre</a></h1>
 
     <div class="profile">
         <a class="profile-link" href="../php/profile.php">
@@ -172,6 +194,9 @@
             </ul>
         </nav>
     </header>
+
+    <h1 class="restText"><a href="../html/index.html">Temp de Ventre</a></h1>
+
 
     <div id="cart-section" style="margin: 4px auto;">
         <h2><a href="../php/cart.php">Cart</a></h2>

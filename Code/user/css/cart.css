@@ -6,3 +6,38 @@ input{
 p{
     text-align: center;
 }
+#cart-section {
+    text-align: right;
+    margin-top: 30px;
+}
+
+#cart-section a {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+#cart-section a:hover {
+    color: #23527c;
+}
+
+#search-form {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#search-form input[type="text"] {
+    width: 300px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+
+#search-form button[type="submit"] {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

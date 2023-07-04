@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css" >
     <link rel="stylesheet" href="../css/navStyle.css">
+    <link rel="stylesheet" href="../css/cart.css">
 
 </head>
 
@@ -38,28 +39,29 @@
             </ul>
         </nav>
     </header>
-
-    
-
       
     <img id="mainImg" src="../img/tdv.jpg" alt="IMG of Restaurant" style="margin: 150px auto 0 auto;">
-        
-    
 
-    <div id="cart-section">
+    <div id="cart-section" style="margin: 4px auto;">
         <h2><a href="../php/cart.php">Cart</a></h2>
+
+        <div id="search-form">
+            <form action="../php/searchFood.php" method="GET">
+                <input type="text" name="keyword" placeholder="Enter a keyword" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </div>
 
-    <div style="position: relative;">
-        <form action="../php/searchFood.php" method="GET">
-            <input type="text" name="keyword" placeholder="Enter a keyword" required>
-            <button type="submit">Search</button>
-        </form>
-    </div> 
-
-    <div id="aboutUs">
-        
+    <div id="aboutUs" class="bg-light text-center p-4">
+        <p class="mb-3">
+            Temp de Ventre is a renowned culinary establishment that specializes in crafting exquisite Western cuisine, 
+            with a particular emphasis on the artistry of French gastronomy. 
+            Our skilled chefs and passionate team are dedicated to delivering an unforgettable dining experience, 
+            where every dish is thoughtfully prepared to tantalize your taste buds and transport you to the heart of culinary excellence.
+        </p>
     </div>
+
 </body>
 
 <script src="../js/index.js"></script>
