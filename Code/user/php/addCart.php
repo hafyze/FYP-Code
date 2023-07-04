@@ -1,24 +1,34 @@
 <?php
+// Establish database connection
+include("../php/dataconnection.php");
 
-// Start the session if not already started
-session_start();
+// Process product addition to cart
+if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
+    session_start();
 
-if (isset($_POST['product']) && isset($_POST['quantity'])) {
-    $product = $_POST['product'];
-    $quantity = $_POST['quantity'];
-
-    // Check if the cart array exists in the session
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array(); // Create an empty cart array
+    if (!isset($_SESSION['customer_id'])) {
+        header("Location: ../php/login.php");
+        exit;
     }
 
-    // Add the selected product with quantity to the cart
-    $item = array('product' => $product, 'quantity' => $quantity);
-    $_SESSION['cart'][] = $item;
+    $productID = $_POST['product_id'];
+    $quantity = $_POST['quantity'];
+    $customerID = $_SESSION['customer_id'];
 
-    // Redirect the user back to the search results page or any other desired page
-    header('Location: ../php/cart.php');
-    exit();
+    // Prepare the SQL statement to insert into the cart table
+    $sql = "INSERT INTO cart (customer_id, product_id, quantity) 
+            VALUES ('$customerID', '$productID', '$quantity')";
+
+    if ($connection->query($sql) === true) {
+        // Display success message
+        echo "<p>Product added to cart successfully.</p>";
+        header("Location: ../php/cart.php");
+    } else {
+        // Display error message
+        echo "<p>Error adding product to cart: " . $connection->error . "</p>";
+    }
 }
 
+// Close the database connection
+$connection->close();
 ?>

@@ -1,48 +1,92 @@
-<?php
-// Create a new MySQLi instance
-include("../php/dataconnection.php");
+<!DOCTYPE html>
+<html>
 
-// Fetch the unique product types/categories from the product table
-$query = "SELECT DISTINCT product_type FROM product";
-$result = $connection->query($query);
+<head>
+    <title>Temp de Ventre</title>
 
-if ($result->num_rows > 0) {
-    // Loop through each category
-    while ($row = $result->fetch_assoc()) {
-        $category = $row['product_type'];
+    <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/specialty.css?v=<?php echo time(); ?>">
+</head>
 
-        // Fetch the food items for the current category
-        $foodQuery = "SELECT * FROM product WHERE product_type = '$category'";
-        $foodResult = $connection->query($foodQuery);
-
-        if ($foodResult->num_rows > 0) {
-            // Display the category and food items
-            echo "<h3>$category</h3>";
-            echo "<ul>";
-
-            while ($foodRow = $foodResult->fetch_assoc()) {
-                $foodId = $foodRow['product_id'];
-                $foodName = $foodRow['product_name'];
-                $foodPrice = $foodRow['price'];
-
-                // Generate HTML content for each food item
-                echo "<li>$foodName - RM$foodPrice";
-                echo "<form class='add-to-cart-form' action='../php/addCart.php' method='POST'>";
-                echo "<input type='hidden' name='product_id' value='$foodId'>";
-                echo "<input type='hidden' name='product_name' value='$foodName'>";
-                echo "<input type='hidden' name='product_price' value='$foodPrice'>";
-                echo "<button type='submit'>Add to Cart</button>";
-                echo "</form>";
-                echo "</li>";
-            }
-
-            echo "</ul>";
-        }
+<style>
+    table {
+        margin: 0 auto;
     }
-} else {
-    echo "No food items found.";
-}
+        
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
 
-// Close the database connection
-$connection->close();
-?>
+    .menu-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .menu-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .menu-header h2 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .menu-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .menu-table th,
+    .menu-table td {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .menu-table th {
+        background-color: #f8f8f8;
+    }
+</style>
+
+<body>
+    <div class="menu-container">
+        <div class="menu-header">
+            <h2>Menu</h2>
+        </div>
+
+        <table class="menu-table">
+            <tr>
+                <th>Food</th>
+                <th>Main Ingredient</th>
+                <th>Price</th>
+            </tr>
+            <?php 
+            include("../php/dataconnection.php");
+
+            $sql = "SELECT * FROM product";
+            $result = $connection->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $productName = $row['product_name'];
+                    $productIngredient = $row['product_ingredients'];
+                    $price = $row['price'];
+
+                    echo "<tr>";
+                    echo "<td>$productName</td>";
+                    echo "<td>$productIngredient</td>";
+                    echo "<td>$price</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>No products available.</td></tr>";
+            }
+            ?>
+        </table>
+    </div>
+</body>
+
+</html>

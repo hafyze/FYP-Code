@@ -1,6 +1,5 @@
 table{
-    text-align: center;
-    margin: 20px;
+    margin: 0 auto;
 }
 
 td,th{
@@ -36,4 +35,8 @@ input[type="file"] {
     margin: 0 5px 5px 5px;
     padding: 0;
     text-align: center;
+}
+
+img{
+    border-radius: 0px;
 }
