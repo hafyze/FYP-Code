@@ -47,9 +47,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare an insert statement
         $sql = "INSERT INTO product(product_name, product_type, product_ingredients, price) VALUES (?, ?, ?, ?)";
  
-        if($stmt = $mysqli->prepare($sql)){
+        if($stmt = $connection->prepare($sql)){
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("ssssi", $param_name, $param_type, $param_ingredients, $param_price);
+            $stmt->bind_param("sssd", $param_name, $param_type, $param_ingredients, $param_price);
             // Set parameters
             $param_name = $product_name;
             $param_type = $product_type;
@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 // Records created successfully. Redirect to landing page
-				echo "<script>alert('Product created successfully');document.location='adminIndex.php'</script>";
+				echo "<script>alert('Product created successfully');document.location='productindex.php'</script>";
                // header("location: singerIndex.php");
                 exit();
             } else{
@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Close connection
-    $mysqli->close();
+    $connection->close();
 }
 ?>
  
@@ -114,11 +114,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
 						<div class="form-group">
                             <label>Price</label>
-                            <input type="number" name="price" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $phoneNo; ?>">
+                            <input type="number" min="0.00" max="10000.00" step="0.01" name="price" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $price; ?>">
                             <span class="invalid-feedback"><?php echo $price_err;?></span>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="admimIndex.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <a href="productindex.php" class="btn btn-secondary ml-2">Cancel</a>
                     </form>
                 </div>
             </div>        
