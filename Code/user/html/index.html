@@ -5,60 +5,125 @@
     <title>Temp de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/index.js"></script>
+
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css" >
+    <link rel="stylesheet" href="../css/navStyle.css">
+    <link rel="stylesheet" href="../css/cart.css">
 
 </head>
 
-<body>
-    <h1>Temp de Ventre</h1>
+<style>
+    body{
+        background-color: #ffffff;
+        background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74% );       
+    }
+    header{
+        margin-top: 5px;
+         background-color: #657566;
+         border-radius: 50px;
+    }
+</style>
 
+<body>
     <div class="profile">
-        
-        <a href="../php/profile.php">
+        <a class="profile-link" href="../php/profile.php">
             <i class="fa-solid fa-user"></i>
             <p>User Profile</p>
         </a>
     </div>
 
-    <form action="../php/logout.php" method="POST">
-        <input style="float: right;" type="submit" value="Logout">
+    <form class="logout-form" action="../php/logout.php" method="POST">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <input type="submit" value="Logout">
     </form>
         
 
     <header>
         <nav id="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
+                <a href="../html/index.html" id="homeText" ><h1 >Temp de Ventre</h1></a>
+                <li><a href="../html/index.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="#">Contact Us</a></li>
-				<li><a href="#">Order Now</a></li>
-				
+                <li><a href="../html/trackOrder.html">Track Order</a></li>
             </ul>
         </nav>
     </header>
+      
+    <img id="mainImg" src="../img/tdv.jpg" alt="IMG of Restaurant" style="margin: 150px auto 0 auto;">
 
-    <div id="cart-section">
-        <h2><a href="../php/cart.php">Cart</a></h2>
+    <div id="cart-section" style="margin: 4px auto;">
+        <h1><a href="../php/cart.php">Cart</a></h1>
+
+        <div id="search-form">
+            <form action="../php/searchFood.php" method="GET">
+                <input type="text" name="keyword" placeholder="Search for Food Here" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </div>
 
-    <div style="position: relative;">
-        <form action="../php/searchFood.php" method="GET">
-            <input type="text" name="keyword" placeholder="Enter a keyword" required>
-            <button type="submit">Search</button>
-        </form>
-        
-        <img src="../img/tdv.jpg" alt="IMG of Restaurant">
-        
+    <div class="homeSection">
+        <h1>About Us</h1>
+        <p>
+            Temp de Ventre is a renowned culinary establishment that specializes in crafting exquisite Western cuisine, 
+            with a particular emphasis on the artistry of French gastronomy. 
+            Our skilled chefs and passionate team are dedicated to delivering an unforgettable dining experience, 
+            where every dish is thoughtfully prepared to tantalize your taste buds and transport you to the heart of culinary excellence.
+        </p>
     </div>
 
-    <div id="aboutUs">
-        
+    <div id="promotion" class="homeSection">
+        <h1>Promotion</h1>
+
     </div>
+
+    <script>
+        // Function to fetch and display promotion data
+        function fetchPromotionData() {
+          $.ajax({
+            url: '../php/promotion.php',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+              // Display the promotion data in the promotion section
+              var promotionSection = document.getElementById('promotion');
+              var html = '<h1>Promotion</h1>';
+      
+              if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    var promotion = data[i];
+                    html += '<div class="promotionItem">';
+                    html += '<h2>Promotion ID: ' + promotion.promo_id + '</h2>';
+                    html += '<p>Spend at least RM ' + promotion.promo_condition + '</p>';
+                    html += '<p>Get Discount: ' + promotion.discount + '%</p>';
+                    html += '<p>Start Date: ' + promotion.starting_date + '</p>';
+                    html += '<p>End Date: ' + promotion.end_date + '</p>';
+                  html += '</div>';
+                }
+              } else {
+                html += '<p>No promotions available.</p>';
+              }
+      
+              promotionSection.innerHTML = html;
+            },
+            error: function() {
+              console.log('Error occurred while fetching promotion data.');
+            }
+          });
+        }
+      
+        // Call the fetchPromotionData function to load the promotion data on page load
+        $(document).ready(function() {
+          fetchPromotionData();
+        });
+      </script>
+      
 </body>
-
-<script src="../js/index.js"></script>
-
 </html>

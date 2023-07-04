@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 
 body {
+    /* color: white;
+    background-color: black; */
     font-family: Arial, sans-serif;
 }
 
@@ -11,7 +13,6 @@ header {
     background-color: #657566;
     color: white;
     text-align: center;
-    border-radius: 8px;
 }
 
 nav ul {
@@ -47,7 +48,7 @@ h1{
     font-family: 'Dancing Script', cursive;
 }
 
-img{
+#mainImg{
     padding: 25px 0;
     width: 550px;
     height: auto;
@@ -65,4 +66,46 @@ img{
 
 form, h2{
     text-align: center;
+}
+
+/* Profile styles */
+.profile {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    margin: 5px;
+}
+
+.profile-link i {
+    display: block;
+    font-size: 24px;
+}
+
+/* Logout form styles */
+.logout-form {
+    text-align: right;
+    margin: 50px 30px;
+}
+
+.logout-form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+#cart-section {
+    text-align: right;
+    margin-top: 0;
 }

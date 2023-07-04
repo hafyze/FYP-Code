@@ -1,32 +1,30 @@
 <?php
-// Establish database connection
+session_start();
 
 include("../php/dataconnection.php");
 
-
-// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve login form data
-    $staff_email = $_POST["staff_email"];
+    $staff_id = $_POST["staff_id"];
     $staff_pass = $_POST["staff_pass"];
 
-    // Check customer from DB
-    $sql = "SELECT * FROM staff
-            WHERE staff_email = '$staff_email' AND staff_pass = '$staff_pass'";
-    
-    $result = $connection->query($sql);
+    // Prepare and execute the query
+    $sql = "SELECT * FROM staff WHERE staff_id = ?";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("i", $staff_id);
+    $stmt->execute();
 
-    //Checks if customer is available from DB
-    if ($result-> num_rows > 0) {
-        $_SESSION["staff_email"] = $staff_email;
-        echo "Login successful!";
-        //Redirect to index.html
-        header("Location: ../index.html");
+    // Store the result in a variable
+    $result = $stmt->get_result();
+
+    // Check if email exists in the db
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $storedPassword = $row['staff_pass']; // Assuming the password column is named "staff_pass"
+        header("Location:../php/googledash.php ");
+
     } else {
-        echo "Invalid username or password";
+        $errorMessage = "Invalid email";
+        echo "<script>alert('Invalid id or password'); window.location.href = '../html/login.html';</script>";
     }
 }
-
-// Close database connection
-$connection->close();
 ?>
