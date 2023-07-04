@@ -1,6 +1,6 @@
 <?php
+session_start();
 // Establish database connection
-
 include("../php/dataconnection.php");
 
 
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["admin_id"] = $admin_id;
         echo "Login successful!";
         //Redirect to index.html
-        header("Location: ../html/index.html");
+        header("Location: ../php/Adminindex.php");
     } else {
         echo "Invalid id or password";
     }
