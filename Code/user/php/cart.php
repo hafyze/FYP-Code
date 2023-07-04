@@ -14,6 +14,10 @@
 
 <style>
     /* Profile styles */
+    body{
+        background-color: #ffffff;
+        background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);       
+    }
     .profile {
         text-align: center;
         margin-top: 20px;

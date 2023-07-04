@@ -34,6 +34,8 @@ $row = mysqli_fetch_assoc($result);
             margin: 0;
             text-align: center;
             padding-top: 50px;
+            background-color: #ffffff;
+            background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);       
         }
 
         h2 {

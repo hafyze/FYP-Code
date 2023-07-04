@@ -45,6 +45,10 @@
         </nav>
     </header>
     <style>
+        body{
+            background-color: #ffffff;
+            background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);       
+        }
         .payment-form .form-control {
             width: 100%;
             max-width: 300px; 

@@ -12,10 +12,15 @@
 </head>
 
 <style>
+    body{
+        background-color: #ffffff;
+        background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);       
+    }
+
     .quantity-input{
         margin: 0 auto;
        width: 80px;
-}
+    }
 </style>
 
 <body>
