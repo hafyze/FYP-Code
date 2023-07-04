@@ -40,3 +40,7 @@ input[type="file"] {
 img{
     border-radius: 0px;
 }
+
+#qrCodeImage{
+    margin: 2px auto;
+}

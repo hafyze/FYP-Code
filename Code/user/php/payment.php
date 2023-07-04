@@ -189,6 +189,11 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label for="promoCode">Promo Code:</label>
+            <input type="text" id="promoCode" name="promoCode" class="form-control" placeholder="Enter promo code(if applicable)">
+        </div>
+
         <button type="submit" class="btn btn-primary">Proceed to Payment</button>
     </form>
 
@@ -197,7 +202,7 @@
         <p>Temp de Ventre Bank</p>
         <p>Maybank XXXXXXXX</p>
         <p>Temp de Ventre</p>
-        <img id="qrCodeImage" name="qrCode" src="../img/qrcode.png" alt="QR Code" style="width:100px">
+        <p><img id="qrCodeImage" name="qrCode" src="../img/qrcode.png" alt="QR Code" style="width:100px;"></p>
     </div>
 
 
