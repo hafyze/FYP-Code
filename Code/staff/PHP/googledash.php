@@ -202,8 +202,27 @@
 
       <!-- Delivery Card 1 -->
       <div class="delivery-card" id="delivery-card-1">
-        <div class="title">Package 1</div>
-        <div class="description">Nasi Lemak Wanjo</div>
+      <?php
+        include("../php/dataconnection.php");
+
+        // Retrieve payment data from the payment table
+        $selectQuery = "SELECT payment_id, payment_type, fee, customer_address FROM payment";
+        $result = mysqli_query($connection, $selectQuery);
+        ?>
+
+        <!-- HTML template -->
+        <!-- Iterate through the fetched payment data and display it -->
+        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+          <div class="delivery-card" id="delivery-card-<?php echo $row['payment_id']; ?>">
+            <div class="title"><?php echo $row['payment_type']; ?></div>
+            <div class="description">Fee: <?php echo $row['fee']; ?></div>
+            <div class="status">
+              Customer Address: <?php echo $row['customer_address']; ?>
+            </div>
+            <!-- Rest of the HTML template -->
+          </div>
+        <?php } ?>
+
         <div class="status">
           Status: <span class="delivered">Delivered</span>
         </div>
