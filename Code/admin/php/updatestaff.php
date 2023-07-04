@@ -193,7 +193,7 @@ $connection->close();
                         </div>
 						<div class="form-group mb-3">
                                 <label>Password</label>
-                                <input required type="password" id="staff_pass" name="staff_pass" placeholder="Enter your password" class="form-control">
+                                <input required type="password" id="staff_pass" name="staff_pass" placeholder="Enter your password" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label>Admin</label>
