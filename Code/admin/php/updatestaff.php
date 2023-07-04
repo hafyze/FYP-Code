@@ -205,7 +205,7 @@ $connection->close();
 									<span class="invalid-feedback"><?php echo $admin_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" name="updateStaff" class="btn btn-primary" value="Submit">
                         <a href="insertstaff.php" class="btn btn-secondary ml-2">Cancel</a>
                     </form>
                 </div>
@@ -216,3 +216,46 @@ $connection->close();
 </html>
 </body>
 </html>
+
+<?php
+include("../php/dataconnection.php");
+
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the staff ID from the form
+    $staffID = $_POST["id"];
+
+    // Retrieve the form data
+    $name = $_POST["staff_name"];
+    $contact = $_POST["staff_contact"];
+    $email = $_POST["staff_email"];
+    $role = $_POST["staff_role"];
+    $pass = $_POST["staff_pass"];
+    $adminID = $_POST["admin_id"];
+
+    // Prepare the update statement
+    $query = "UPDATE staff SET 
+                staff_name = '$name', 
+                staff_contact = '$contact', 
+                staff_email = '$email',
+                staff_role = '$role',
+                staff_pass = '$pass',
+                admin_id = '$adminID'
+                WHERE staff_id = $staffID";
+    
+    // Execute the update statement
+    if (mysqli_query($connection, $query)) {
+        
+        // Update successful
+        echo "<script>alert('Staff information updated successfully'); document.location='insertstaff.php';</script>";
+        exit();
+    } else {
+        // Update failed
+        echo "Error updating staff information: " . mysqli_error($connection);
+    }
+
+    // Close the database connection
+    mysqli_close($connection);
+}
+?>
