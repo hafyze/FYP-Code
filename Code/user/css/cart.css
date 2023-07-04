@@ -43,14 +43,42 @@ p{
     cursor: pointer;
 }
 
-#aboutUs {
+.homeSection {
     margin: 5px auto;
     padding: 20px;
     width: 50%;
     text-align: center;
     background-color: #f8f8f8;
+    border-radius: 50px;
 }
 
-#aboutUs p {
+.homeSection p {
     margin-bottom: 10px;
 }
+
+#promotion {
+    background-color: #f8f8f8;
+    padding: 20px;
+  }
+
+  #promotion h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .promotionItem {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .promotionItem h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .promotionItem p {
+    margin: 5px 0;
+  }
