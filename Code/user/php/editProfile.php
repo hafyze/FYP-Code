@@ -20,9 +20,21 @@
         $custContact = $_POST['customer_contact'];
         $custEmail = $_POST['customer_email'];
         $custPass = $_POST['customer_pass'];
-
+        $currentPass = $_POST['current_password'];
+    
+        // Retrieve the current password from the database for the logged-in user
+        $currentPassQuery = "SELECT customer_pass FROM customer WHERE customer_id = $custId";
+        $currentPassResult = mysqli_query($connection, $currentPassQuery);
+        $currentPassRow = mysqli_fetch_assoc($currentPassResult);
+        $storedPass = $currentPassRow['customer_pass'];
+    
+        // Validate the current password
+        if ($currentPass !== $storedPass) {
+            $error_message = "Error: Incorrect current password.";
+            echo "<script>alert('$error_message');</script>";
+        } 
         // Validation for email format
-        if (!filter_var($custEmail, FILTER_VALIDATE_EMAIL)) {
+        elseif (!filter_var($custEmail, FILTER_VALIDATE_EMAIL)) {
             $error_message = "Error: Invalid email format.";
             echo "<script>alert('$error_message');</script>";
         } 
@@ -40,7 +52,7 @@
                             customer_pass = '$custPass' 
                             WHERE customer_id = $custId";
             mysqli_query($connection, $updateQuery);
-
+    
             // Redirect to the profile page
             header("Location: ../php/profile.php?success=1");
             exit;
@@ -61,9 +73,34 @@
     <link rel="stylesheet" href="../css/profile.css">
 </head>
 
+<style>
+    #tdvText{
+        width: fit-content;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #657566;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+
+    #tdvText a{
+        color: white;
+    }
+
+    #tdvText:hover{
+        color: ;
+        background-color: #333;
+        transition-duration: 1.3s;
+    }
+
+    #tdvText a:hover{
+        text-decoration: none;
+    }
+</style>
+
 <body>
     <div class="container">
-        <h1><a href="../html/index.html">Temp de Ventre</a></h1>
+        <h1 id="tdvText"><a href="../html/index.html">Temp de Ventre</a></h1>
         <h2><i class="fa-regular fa-pen-to-square"></i>Edit Profile</h2>
         <form action="../php/editProfile.php" method="POST">
             <div class="form-group">
@@ -85,6 +122,13 @@
                     <i class="fa-solid fa-envelope"></i> Email:
                 </label>
                 <input type="email" class="form-control" name="customer_email" value="<?php echo $row['customer_email']; ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="current_password">
+                    <i class="fa-solid fa-lock"></i> Current Password:
+                </label>
+                <input type="password" class="form-control" name="current_password" required>
             </div>
 
             <div class="form-group">
