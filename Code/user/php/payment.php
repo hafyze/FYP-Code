@@ -41,7 +41,8 @@
                 <li><a href="#">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Cart</a></li>
+                <li><a href="../php/cart.php">Cart</a></li>
+                <li><a href="../html/trackOrder.html">Track Order</a></li>
             </ul>
         </nav>
     </header>

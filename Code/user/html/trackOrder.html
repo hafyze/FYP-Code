@@ -5,11 +5,13 @@
     <title>Temps de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="../css/style.css" >
     <link rel="stylesheet" href="../css/navStyle.css">
     <link rel="stylesheet" href="../css/specialty.css">
+
 
     <style>
         body{
@@ -97,16 +99,6 @@
             width: 500px;
             max-width: 100%;
             height: auto;
-        }
-
-        #foodList {
-            margin-top: 30px;
-        }
-
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
         }
 
         /* Profile styles */
@@ -214,11 +206,22 @@
     
     <img id="mainImg" src="../img/tdv.jpg" alt="IMG of Restaurant">
     
-    <div id="foodList">
-        <iframe src="../php/specialty.php" frameborder="0"></iframe>
-    </div>
-
     <script src="../js/index.js"></script>
+    <h2>Order History</h2>
+
+    <div id="deliveryData"></div>
+        <script>
+            // Use AJAX to fetch and display the delivery data
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("deliveryData").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../php/trackOrder.php", true);
+            xmlhttp.send();
+        </script>
+
 </body>
 
 </html>
