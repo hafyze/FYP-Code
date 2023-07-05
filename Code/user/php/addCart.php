@@ -26,7 +26,7 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
         header("Location: ../php/cart.php");
     } else {
         // Display error message
-        echo "<script>alert('Error adding product to cart: " . $connection->error . "');</script>";
+        echo "<script>alert('Error adding product to cart:');</script>";
     }
 }
 

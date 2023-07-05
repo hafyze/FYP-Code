@@ -62,10 +62,33 @@
     .logout-form input[type="submit"]:hover {
         background-color: #555;
     }
+
+    #tdvText{
+        width: fit-content;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #657566;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+
+        #tdvText a{
+            color: white;
+        }
+
+        #tdvText:hover{
+            color: ;
+            background-color: #333;
+            transition-duration: 1.3s;
+        }
+
+        #tdvText a:hover{
+            text-decoration: none;
+        }
 </style>
 
 <body>
-    <h1 ><a href="../html/index.html">Temps de Ventre</a></h1>
+    <h1 id="tdvText"><a href="../html/index.html">Temps de Ventre</a></h1>
 
     <div class="profile">
         <a class="profile-link" href="../php/profile.php">
@@ -82,11 +105,10 @@
     <header>
         <nav id="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="../html/index.html">Home</a></li>
+                <li><a href="../html/index.html#aboutUs">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
                 <li><a href="#">Contact Us</a></li>
-				<li><a href="#">Cart</a></li>
                 <li><a href="../html/trackOrder.html">Track Order</a></li>
             </ul>
         </nav>

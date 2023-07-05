@@ -57,27 +57,27 @@ $row = mysqli_fetch_assoc($result);
         }
 
         #tdvText{
-        width: fit-content;
-        margin: 0 auto;
-        padding: 15px;
-        background-color: #657566;
-        border-radius: 15px;
-        text-decoration: none;
-    }
+            width: fit-content;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #657566;
+            border-radius: 15px;
+            text-decoration: none;
+        }
 
-    #tdvText a{
-        color: white;
-    }
+        #tdvText a{
+            color: white;
+        }
 
-    #tdvText:hover{
-        color: ;
-        background-color: #333;
-        transition-duration: 1.3s;
-    }
+        #tdvText:hover{
+            color: ;
+            background-color: #333;
+            transition-duration: 1.3s;
+        }
 
-    #tdvText a:hover{
-        text-decoration: none;
-    }
+        #tdvText a:hover{
+            text-decoration: none;
+        }
     </style>
 </head>
 

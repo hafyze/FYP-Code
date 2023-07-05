@@ -111,6 +111,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_stmt_affected_rows($insertStmt) > 0) {
             // Payment successfully processed
             // You can perform any additional actions here, such as clearing the cart, sending email notifications, etc.
+            // Insert a row in the delivery table with the "pending" status
+            // Insert the payment details into the database
+            // Insert the payment details into the delivery table
+            // Insert the payment details into the delivery table
+        $insertQuery = "INSERT INTO delivery (fee, delivery_status, customer_id, address) 
+        VALUES (?, ?, ?, ?)";
+        $insertStmt = mysqli_prepare($connection, $insertQuery);
+
+        $deliveryStatus = "Pending"; // Set the delivery_status as "Pending" by default
+
+        mysqli_stmt_bind_param($insertStmt, "diss", $totalFee, $deliveryStatus, $customerID, $address);
+        mysqli_stmt_execute($insertStmt);
+
+
 
             // Delete the cart records associated with the customer
             $deleteCartQuery = "DELETE FROM cart WHERE customer_id = ?";
