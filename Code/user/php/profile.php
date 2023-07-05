@@ -55,11 +55,34 @@ $row = mysqli_fetch_assoc($result);
         a:hover {
             color: #23527c;
         }
+
+        #tdvText{
+        width: fit-content;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #657566;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+
+    #tdvText a{
+        color: white;
+    }
+
+    #tdvText:hover{
+        color: ;
+        background-color: #333;
+        transition-duration: 1.3s;
+    }
+
+    #tdvText a:hover{
+        text-decoration: none;
+    }
     </style>
 </head>
 
 <body>
-    <h1><a href="../html/index.html">Temp de Ventre</a></h1>
+    <h1 id="tdvText"><a href="../html/index.html">Temp de Ventre</a></h1>
     <h2><i class="fa-solid fa-user"></i> User Profile</h2>
 
     <p><i class="fa-solid fa-signature"></i>
