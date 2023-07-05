@@ -20,12 +20,13 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
             VALUES ('$customerID', '$productID', '$quantity')";
 
     if ($connection->query($sql) === true) {
-        // Display success message
-        echo "<p>Product added to cart successfully.</p>";
+        // Display success message with the quantity value
+        $quantity = $_POST['quantity'];
+        echo "<script>alert('Product added to cart. Quantity: $quantity');</script>";
         header("Location: ../php/cart.php");
     } else {
         // Display error message
-        echo "<p>Error adding product to cart: " . $connection->error . "</p>";
+        echo "<script>alert('Error adding product to cart: " . $connection->error . "');</script>";
     }
 }
 

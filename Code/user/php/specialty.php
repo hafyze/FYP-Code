@@ -49,6 +49,18 @@
     .menu-table th {
         background-color: #f8f8f8;
     }
+
+    .add-to-cart-button {
+        padding: 5px 10px;
+        background-color: #337ab7;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .add-to-cart-button:hover {
+        background-color: #23527c;
+    }
 </style>
 
 <body>
@@ -62,6 +74,7 @@
                 <th>Food</th>
                 <th>Main Ingredient</th>
                 <th>Price</th>
+                <th></th> <!-- Add column for "Add to Cart" button -->
             </tr>
             <?php 
             include("../php/dataconnection.php");
@@ -71,6 +84,7 @@
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    $productId = $row['product_id'];
                     $productName = $row['product_name'];
                     $productIngredient = $row['product_ingredients'];
                     $price = $row['price'];
@@ -79,14 +93,46 @@
                     echo "<td>$productName</td>";
                     echo "<td>$productIngredient</td>";
                     echo "<td>$price</td>";
+                    echo "<td>";
+                    echo "<button class='add-to-cart-button' onclick='addToCart($productId)'>Add to Cart</button>";
+                    echo "</td>";
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='3'>No products available.</td></tr>";
+                echo "<tr><td colspan='4'>No products available.</td></tr>";
             }
             ?>
         </table>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // Function to add a product to the cart
+        function addToCart(productId) {
+            // Prompt the user to enter the quantity
+            var quantity = prompt("Enter the quantity:");
+
+            // Validate the quantity
+            if (quantity !== null && quantity !== "") {
+                // Send an AJAX request to addCart.php to process the addition to cart
+                $.ajax({
+                    url: "../php/addCart.php",
+                    type: "POST",
+                    data: {
+                        product_id: productId,
+                        quantity: quantity
+                    },
+                    success: function(response) {
+                        alert("Successfully added product to cart.");
+                        location.reload();
+                    },
+                    error: function() {
+                        alert("Error adding product to cart.");
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 
 </html>
