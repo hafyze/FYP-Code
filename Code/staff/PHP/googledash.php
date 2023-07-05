@@ -237,25 +237,6 @@
         </div>
       </div>
 
-      <!-- Delivery Card 2 -->
-      <div class="delivery-card" id="delivery-card-2">
-        <div class="title">Package 2</div>
-        <div class="description">Pizza Hawaiian.</div>
-        <div class="status">
-          Status: <span class="pending">Pending</span>
-        </div>
-        <div class="change-status">
-          Change status:
-          <button onclick="changeDeliveryStatus('delivery-card-2', 'Pending')">Pending</button>
-          <button onclick="changeDeliveryStatus('delivery-card-2', 'In Kitchen')">In Kitchen</button>
-          <button onclick="changeDeliveryStatus('delivery-card-2', 'Delivered')">Delivered</button>
-        </div>
-        <div class="google-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.2236217501277!2d101.66115507483438!3d3.034591096941259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb36044fe6151%3A0x8c7d727d8b83d535!2sIntellogic%20Technology%20Sdn%20Bhd!5e0!3m2!1sen!2smy!4v1688394741294!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-    </div>
-
     <!-- Check-in/out features -->
     <form id="attendance-form">
   <div class="check-in-out-section">
