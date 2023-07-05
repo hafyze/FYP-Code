@@ -34,10 +34,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $sql = "INSERT INTO customer (customer_name, customer_contact, customer_email, customer_pass) 
                             VALUES ('$customer_name', '$customer_contact', '$customer_email', '$customer_pass')";
 
-                    if ($connection->query($sql) === TRUE) {
-                        header("Location: ../html/index.html");
-                        exit; // Exit after redirection
-                    } else {
+                if ($connection->query($sql) === TRUE) {
+                    // Get the newly inserted customer ID
+                    $customer_id = $connection->insert_id;
+                    
+                    // Start the session
+                    session_start();
+                    
+                    // Store the customer ID in the session variable
+                    $_SESSION['customer_id'] = $customer_id;
+                    
+                    // Redirect to the desired page
+                    header("Location: ../html/index.html");
+                    exit; // Exit after redirection
+                } else {
                         echo "Error: " . $sql . "<br>";
                     }
                 }
