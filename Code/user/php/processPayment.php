@@ -109,20 +109,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check if the payment insertion was successful
         if (mysqli_stmt_affected_rows($insertStmt) > 0) {
-            // Payment successfully processed
-            // You can perform any additional actions here, such as clearing the cart, sending email notifications, etc.
-            // Insert a row in the delivery table with the "pending" status
-            // Insert the payment details into the database
-            // Insert the payment details into the delivery table
-            // Insert the payment details into the delivery table
-        $insertQuery = "INSERT INTO delivery (fee, delivery_status, customer_id, address) 
-        VALUES (?, ?, ?, ?)";
-        $insertStmt = mysqli_prepare($connection, $insertQuery);
+    
+            $insertQuery = "INSERT INTO delivery (fee, delivery_status, address, customer_id) 
+                            VALUES (?, ?, ?, ?)";
+            $insertStmt = mysqli_prepare($connection, $insertQuery);
 
-        $deliveryStatus = "Pending"; // Set the delivery_status as "Pending" by default
+            $status = "Pending"; // Set the status as "Pending" by default
 
-        mysqli_stmt_bind_param($insertStmt, "diss", $totalFee, $deliveryStatus, $customerID, $address);
-        mysqli_stmt_execute($insertStmt);
+            mysqli_stmt_bind_param($insertStmt, "isss", $totalFee, $status, $address, $customerID);
+            mysqli_stmt_execute($insertStmt);
+
+
 
 
 
