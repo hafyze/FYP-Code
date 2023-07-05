@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Temp de Ventre</title>
+    <title>Temps de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -41,11 +41,10 @@
     <header>
         <nav id="navbar">
             <ul>
-                <a href="../html/index.html" id="homeText" ><h1 >Temp de Ventre</h1></a>
+                <a href="../html/index.html" id="homeText" ><h1 >Temps de Ventre</h1></a>
                 <li><a href="../html/index.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
-                <li><a href="#">News</a></li>
                 <li><a href="#">Contact Us</a></li>
             </ul>
         </nav>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Temp de Ventre</title>
+    <title>Temps de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <h1>Temp de Ventre</h1>
+    <h1>Temps de Ventre</h1>
 
     <?php
     // updatePassword.php

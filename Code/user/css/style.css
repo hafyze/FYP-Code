@@ -37,9 +37,9 @@ nav a {
 }
 
 #navbar a:hover {
-    color: #657466;
-    background-color: white;
-    border-radius: 8px;
+    color: white;
+    background-color: #333;
+    text-decoration: none;
     transition-duration: 0.6s;
 }
 
@@ -108,4 +108,26 @@ form, h2{
 #cart-section {
     text-align: right;
     margin-top: 0;
+}
+
+#tdvText{
+    width: fit-content;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #657566;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+#tdvText a{
+    color: white;
+}
+
+#tdvText:hover{
+    background-color: #333;
+    transition-duration: 1.3s;
+}
+
+#tdvText a:hover{
+    text-decoration: none;
 }

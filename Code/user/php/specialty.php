@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Temp de Ventre</title>
+    <title>Temps de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

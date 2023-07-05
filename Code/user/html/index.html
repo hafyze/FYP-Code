@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Temp de Ventre</title>
+    <title>Temps de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -17,6 +17,9 @@
 </head>
 
 <style>
+    *{
+        scroll-behavior: smooth;
+    }
     body{
         background-color: #ffffff;
         background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74% );       
@@ -25,6 +28,28 @@
         margin-top: 5px;
          background-color: #657566;
          border-radius: 50px;
+    }
+
+    #tdvText{
+        width: fit-content;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #657566;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+
+    #tdvText a{
+        color: white;
+    }
+
+    #tdvText:hover{
+        background-color: #333;
+        transition-duration: 1.3s;
+    }
+
+    #tdvText a:hover{
+        text-decoration: none;
     }
 </style>
 
@@ -45,11 +70,10 @@
     <header>
         <nav id="navbar">
             <ul>
-                <a href="../html/index.html" id="homeText" ><h1 >Temp de Ventre</h1></a>
+                <h1 id="tdvText"><a href="../html/index.html">Temps de Ventre</a></h1>
                 <li><a href="../html/index.html">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="#aboutUs">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
-                <li><a href="#">News</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="../html/trackOrder.html">Track Order</a></li>
             </ul>
@@ -69,10 +93,10 @@
         </div>
     </div>
 
-    <div class="homeSection">
+    <div class="homeSection" id="aboutUs">
         <h1>About Us</h1>
         <p>
-            Temp de Ventre is a renowned culinary establishment that specializes in crafting exquisite Western cuisine, 
+            Temps de Ventre is a renowned culinary establishment that specializes in crafting exquisite Western cuisine, 
             with a particular emphasis on the artistry of French gastronomy. 
             Our skilled chefs and passionate team are dedicated to delivering an unforgettable dining experience, 
             where every dish is thoughtfully prepared to tantalize your taste buds and transport you to the heart of culinary excellence.

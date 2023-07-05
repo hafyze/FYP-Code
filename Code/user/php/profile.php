@@ -23,7 +23,7 @@ $row = mysqli_fetch_assoc($result);
 <html>
 
 <head>
-    <title>Temp de Ventre - User Profile</title>
+    <title>Temps de Ventre - User Profile</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -82,7 +82,7 @@ $row = mysqli_fetch_assoc($result);
 </head>
 
 <body>
-    <h1 id="tdvText"><a href="../html/index.html">Temp de Ventre</a></h1>
+    <h1 id="tdvText"><a href="../html/index.html">Temps de Ventre</a></h1>
     <h2><i class="fa-solid fa-user"></i> User Profile</h2>
 
     <p><i class="fa-solid fa-signature"></i>

@@ -65,7 +65,7 @@
 <html>
 
 <head>
-    <title>Temp de Ventre</title>
+    <title>Temps de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -88,7 +88,6 @@
     }
 
     #tdvText:hover{
-        color: ;
         background-color: #333;
         transition-duration: 1.3s;
     }
@@ -100,7 +99,7 @@
 
 <body>
     <div class="container">
-        <h1 id="tdvText"><a href="../html/index.html">Temp de Ventre</a></h1>
+        <h1 id="tdvText"><a href="../html/index.html">Temps de Ventre</a></h1>
         <h2><i class="fa-regular fa-pen-to-square"></i>Edit Profile</h2>
         <form action="../php/editProfile.php" method="POST">
             <div class="form-group">

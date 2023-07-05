@@ -6,7 +6,7 @@
 <html>
 
 <head>
-    <title>Temp de Ventre</title>
+    <title>Temps de Ventre</title>
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
 
@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <h1 class="restText"><a href="../html/index.html">Temp de Ventre</a></h1>
+    <h1 class="restText"><a href="../html/index.html">Temps de Ventre</a></h1>
 
     <div class="profile">
         <a class="profile-link" href="../php/profile.php">
@@ -40,7 +40,6 @@
                 <li><a href="../html/index.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
-                <li><a href="#">News</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Cart</a></li>
             </ul>
@@ -201,9 +200,9 @@
 
     <div id="bankContact" class="mt-4">
         <h3>Bank Details</h3>
-        <p>Temp de Ventre Bank</p>
+        <p>Temps de Ventre Bank</p>
         <p>Maybank XXXXXXXX</p>
-        <p>Temp de Ventre</p>
+        <p>Temps de Ventre</p>
         <p><img id="qrCodeImage" name="qrCode" src="../img/qrcode.png" alt="QR Code" style="width:100px;"></p>
     </div>
 
