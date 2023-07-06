@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Payment Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            font-family: "Lato", sans-serif;
+            background-color: #ffffff;
+        }
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+        table tr td:last-child{
+            width: 120px;
+        }
+        h2{
+        font-family: 'Dancing Script', cursive;
+        }
+    </style>
     <script>
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();   
@@ -34,6 +54,7 @@
                                         echo "<th>Fee</th>";
                                         echo "<th>Cart ID</th>";
                                         echo "<th>Address</th>";
+                                        echo "<th>Status</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -45,6 +66,7 @@
                                         echo "<td>" . $row['fee'] . "</td>";
                                         echo "<td>" . $row['cart_id'] . "</td>";
 										echo "<td>" . $row['customer_address'] . "</td>";
+                                        echo "<td>" . $row['payment_status'] . "</td>";
                                         echo "<td>";
                                          //   echo '<a href="readSinger.php?id='. $row['singer_ID'] .'">Reada</a>';
                                             echo '<a href="updatepayment.php?id='. $row['payment_id'] .'" class="btn btn-primary ml-2">UPDATE</a>';

@@ -80,13 +80,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Register New Promotion Information</title>
-    <link rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
+        body{
+            font-family: "Lato", sans-serif;
+            background-color: #ffffff;
+        }
         .wrapper{
             width: 600px;
             margin: 0 auto;
+            margin-top: 50px;
         }
-    </style>
+        .invalid-feedback {
+            display: block;
+            color: red;
+        }
+        h2{
+        font-family: 'Dancing Script', cursive;
+        }
 </head>
 <body>
     <div class="wrapper">

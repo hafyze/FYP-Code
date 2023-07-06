@@ -135,6 +135,25 @@ $connection->close();
 <head>
     <meta charset="UTF-8">
     <title>Update Promotion Info</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{
+            font-family: "Lato", sans-serif;
+            background-color: #ffffff;
+        }
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        .invalid-feedback {
+            display: block;
+            color: red;
+        }
+        h2{
+        font-family: 'Dancing Script', cursive;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
