@@ -47,9 +47,9 @@
             <ul>
                 <a href="../html/index.html" id="homeText" ><h1 >Temps de Ventre</h1></a>
                 <li><a href="../html/index.html">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="../html/index.html#aboutUs">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="../html/contactUs.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>

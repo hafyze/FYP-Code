@@ -105,9 +105,9 @@
         <nav id="navbar">
             <ul>
                 <li><a href="../html/index.html">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="../html/index.html#aboutUs">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="../html/contactUs.html">Contact Us</a></li>
                 <li><a href="../php/cart.php">Cart</a></li>
                 <li><a href="../html/trackOrder.html">Track Order</a></li>
             </ul>

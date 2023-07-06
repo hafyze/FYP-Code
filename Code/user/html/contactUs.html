@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Temps de Ventre</title>
+
+    <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/index.js"></script>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css" >
+    <link rel="stylesheet" href="../css/navStyle.css">
+    <link rel="stylesheet" href="../css/cart.css">
+
+</head>
+
+<style>
+    *{
+        scroll-behavior: smooth;
+    }
+    body{
+        background-color: #ffffff;
+        background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74% );       
+    }
+    header{
+        margin-top: 5px;
+        background-color: #657566;
+        border-radius: 50px;
+    }
+
+    #navbar ul li a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        border-radius: 8%;
+        transition: all 0.3s ease;
+    }
+
+    #navbar ul li a:hover {
+        color: #333;
+        background-color: #f5f5f5;
+    }
+</style>
+
+<body>
+    <div class="profile">
+        <a class="profile-link" href="../php/profile.php">
+            <i class="fa-solid fa-user"></i>
+            <p>User Profile</p>
+        </a>
+    </div>
+
+    <form class="logout-form" action="../php/logout.php" method="POST">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <input type="submit" value="Logout">
+    </form>
+        
+
+    <header>
+        <nav id="navbar">
+            <ul>
+                <h1 id="tdvText"><a href="../html/index.html">Temps de Ventre</a></h1>
+                <li><a href="../html/index.html">Home</a></li>
+                <li><a href="../html/index.html#aboutUs">About Us</a></li>
+                <li><a href="../html/specialty.html">Specialty</a></li>
+                <li><a href="../html/contactUs.html">Contact Us</a></li>
+                <li><a href="../html/trackOrder.html">Track Order</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <img id="mainImg" src="../img/tdv.jpg" alt="IMG of Restaurant">
+
+    
+      
+</body>
+</html>

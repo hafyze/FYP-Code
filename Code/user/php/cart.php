@@ -116,7 +116,7 @@
                 <li><a href="../html/index.html">Home</a></li>
                 <li><a href="../html/index.html#aboutUs">About Us</a></li>
                 <li><a href="../html/specialty.html">Specialty</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="../html/contactUs.html">Contact Us</a></li>
                 <li><a href="../html/trackOrder.html">Track Order</a></li>
             </ul>
         </nav>
