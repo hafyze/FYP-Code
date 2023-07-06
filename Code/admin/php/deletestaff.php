@@ -17,7 +17,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         // Attempt to execute the prepared statement
         if($stmt->execute()){
             // Records deleted successfully. Redirect to landing page
-			echo "<script>alert('Product records deleted successfully');document.location='insertstaff.php'</script>";
+			echo "<script>alert('Staff records deleted successfully');document.location='insertstaff.php'</script>";
            // header("location: singerIndex.php");
             exit();
         } else{

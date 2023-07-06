@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 // Records created successfully. Redirect to landing page
-				echo "<script>alert('Product created successfully');document.location='insertstaff.php'</script>";
+				echo "<script>alert('Staff created successfully');document.location='insertstaff.php'</script>";
                // header("location: singerIndex.php");
                 exit();
             } else{

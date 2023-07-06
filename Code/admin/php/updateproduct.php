@@ -62,7 +62,7 @@ if(empty($name_err) && empty($type_err) && empty($ingredients_err)&& empty($pric
         // Attempt to execute the prepared statement
         if($stmt->execute()){
             // Records created successfully. Redirect to landing page
-            echo "<script>alert('Product created successfully');document.location='productindex.php'</script>";
+            echo "<script>alert('Product updated successfully');document.location='productindex.php'</script>";
            // header("location: singerIndex.php");
             exit();
         } else{
@@ -162,7 +162,6 @@ $connection->close();
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="mt-5">Update Product Information</h2>
-                    <p>Please fill this form and submit to add prodcut to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>" method="post">
                         <div class="form-group">
                             <label>Name</label>

@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 // Records created successfully. Redirect to landing page
-				echo "<script>alert('Product created successfully');document.location='promotionindex.php'</script>";
+				echo "<script>alert('Promotion created successfully');document.location='promotionindex.php'</script>";
                // header("location: singerIndex.php");
                 exit();
             } else{
@@ -107,7 +107,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="mt-5">Promotion</h2>
-                    <p>Please fill this form and submit to add prodcut to the database.</p>
+                    <p>Please fill this form and submit to add Promotion to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label>Condition</label>

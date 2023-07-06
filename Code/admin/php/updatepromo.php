@@ -62,7 +62,7 @@ if(empty($discount_err) && empty($start_err)&& empty($end_err)&& empty($conditio
         // Attempt to execute the prepared statement
         if($stmt->execute()){
             // Records created successfully. Redirect to landing page
-            echo "<script>alert('Product created successfully');document.location='promotionindex.php'</script>";
+            echo "<script>alert('Promotion updated successfully');document.location='promotionindex.php'</script>";
            // header("location: singerIndex.php");
             exit();
         } else{

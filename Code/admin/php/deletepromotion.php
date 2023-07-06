@@ -17,7 +17,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         // Attempt to execute the prepared statement
         if($stmt->execute()){
             // Records deleted successfully. Redirect to landing page
-			echo "<script>alert('Product records deleted successfully');document.location='promotionindex.php'</script>";
+			echo "<script>alert('Promotion records deleted successfully');document.location='promotionindex.php'</script>";
            // header("location: singerIndex.php");
             exit();
         } else{
@@ -70,7 +70,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="alert alert-danger">
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
-                            <p>Are you sure you want to delete this Product record?</p>
+                            <p>Are you sure you want to delete this Promotion record?</p>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">
                                 <a href="promotionindex.php" class="btn btn-secondary ml-2">No</a>

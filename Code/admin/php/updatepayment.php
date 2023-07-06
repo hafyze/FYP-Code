@@ -71,7 +71,7 @@ if(empty($type_err) && empty($fee_err) && empty($cart_err)&& empty($address_err)
         // Attempt to execute the prepared statement
         if($stmt->execute()){
             // Records created successfully. Redirect to landing page
-            echo "<script>alert('Product created successfully');document.location='paymentindex.php'</script>";
+            echo "<script>alert('Payment updated successfully');document.location='paymentindex.php'</script>";
            // header("location: singerIndex.php");
             exit();
         } else{
