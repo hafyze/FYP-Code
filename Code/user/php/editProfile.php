@@ -69,11 +69,16 @@
 
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/style.css?v=<?php echo time()?>">
+    <link rel="stylesheet" href="../css/profile.css?v=<?php echo time()?>">
 </head>
 
 <style>
+    body{
+        background-color: #ffffff;
+        background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);       
+    }
+
     #tdvText{
         width: fit-content;
         margin: 0 auto;
@@ -127,7 +132,7 @@
                 <label for="current_password">
                     <i class="fa-solid fa-lock"></i> Current Password:
                 </label>
-                <input type="password" class="form-control" name="current_password" required>
+                <input type="password" class="form-control" name="current_password" placeholder="insert current password to make changes"required>
             </div>
 
             <div class="form-group">
