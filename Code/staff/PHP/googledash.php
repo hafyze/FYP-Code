@@ -162,10 +162,6 @@
   <div class="sidebar">
     <ul>
       <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Tasks</a></li>
-      <li><a href="#">Messages</a></li>
-      <li><a href="#">Calendar</a></li>
-      <li><a href="#">Settings</a></li>
     </ul>
   </div>
 
@@ -223,6 +219,15 @@
           </div>
         <?php } ?>
 
+        <div class="fee">
+        Fee: $10
+        </div>
+        <div class="payment">
+       Payment: Cash
+       </div>
+        <div class="address">
+        Customer Address: 123 Main Street, City, Country
+        </div>
         <div class="status">
           Status: <span class="delivered">Delivered</span>
         </div>
