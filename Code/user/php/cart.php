@@ -47,7 +47,7 @@
     /* Logout form styles */
     .logout-form {
         text-align: right;
-        margin-top: 20px;
+        margin: 20px 20px 0 20px;
     }
 
     .logout-form input[type="submit"] {
