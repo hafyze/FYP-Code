@@ -5,6 +5,8 @@
     <title>Temps de Ventre - Login</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/formStyle.css">
+
     <script src="https://kit.fontawesome.com/fd65af94cc.js" crossorigin="anonymous"></script>
 </head>
 
@@ -30,25 +32,28 @@
 <body>
     <h1>Temps de Ventre - Login</h1>
 
-    <form action="../php/login.php" method="POST">
-        <div>
+    <div class="container">
+        <form action="../php/login.php" method="POST" class="login-form">
+          <div class="form-group">
             <label for="customer_email">
-                <i class="fa-solid fa-envelope"></i>
-                Email:
+              <i class="fa-solid fa-envelope"></i>
+              Email:
             </label>
-            <input type="text" id="customer_email" name="customer_email" placeholder="abc@gmail.com" required>
-        </div>
-
-        <div>
+            <input type="text" id="customer_email" name="customer_email" class="form-control" placeholder="abc@gmail.com" required>
+          </div>
+      
+          <div class="form-group">
             <label for="customer_pass">
-                <i class="fa-solid fa-lock"></i>
-                Password:
+              <i class="fa-solid fa-lock"></i>
+              Password:
             </label>
-            <input type="password" id="customer_pass" name="customer_pass" placeholder="123" required>
-        </div>
-
-        <input type="submit" value="Login">
-    </form>
+            <input type="password" id="customer_pass" name="customer_pass" class="form-control" placeholder="123" required>
+          </div>
+      
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+      
 
     <div style="margin: 10px 0;">
         <a href="../php/resetPassword.php">Forgot Password?</a>
