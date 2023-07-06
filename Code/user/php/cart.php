@@ -134,72 +134,92 @@
     </div>
 
     <?php
-session_start();
+        session_start();
 
-if (!isset($_SESSION['customer_id'])) {
-    header("Location: ../html/login.html");
-    exit;
-}
+        if (!isset($_SESSION['customer_id'])) {
+            header("Location: ../html/login.html");
+            exit;
+        }
 
-include("../php/dataconnection.php");
+        include("../php/dataconnection.php");
 
-if (isset($_POST['product_id']) && isset($_POST['action']) && $_POST['action'] === 'remove') {
-    $productID = $_POST['product_id'];
-    $customerID = $_SESSION['customer_id'];
+        if (isset($_POST['product_id']) && isset($_POST['action'])) {
+            if ($_POST['action'] === 'remove') {
+                $productID = $_POST['product_id'];
+                $customerID = $_SESSION['customer_id'];
 
-    $sql = "DELETE FROM cart WHERE customer_id = '$customerID' AND product_id = '$productID'";
+                $sql = "DELETE FROM cart WHERE customer_id = '$customerID' AND product_id = '$productID'";
 
-    if ($connection->query($sql) === true) {
-        echo "<p>Item removed from cart successfully.</p>";
-    } 
-}
+                if ($connection->query($sql) === true) {
+                    echo "<p>Item removed from cart successfully.</p>";
+                } 
+            } elseif ($_POST['action'] === 'update_quantity') {
+                $productID = $_POST['product_id'];
+                $customerID = $_SESSION['customer_id'];
+                $quantity = $_POST['quantity'];
 
-$sql = "SELECT * FROM cart INNER JOIN product 
-        ON cart.product_id = product.product_id 
-        WHERE cart.customer_id = '{$_SESSION['customer_id']}'";
-$result = $connection->query($sql);
+                $sql = "UPDATE cart SET quantity = '$quantity' WHERE customer_id = '$customerID' AND product_id = '$productID'";
 
-if ($result->num_rows > 0) {
-    echo "<h2>Cart Items:</h2>";
+                if ($connection->query($sql) === true) {
+                    echo "<p>Quantity updated successfully.</p>";
+                }
+            }
+        }
 
-    $totalPrice = 0; 
+        $sql = "SELECT * FROM cart INNER JOIN product 
+                ON cart.product_id = product.product_id 
+                WHERE cart.customer_id = '{$_SESSION['customer_id']}'";
+        $result = $connection->query($sql);
 
-    while ($row = $result->fetch_assoc()) {
-        $productID = $row['product_id'];
-        $productName = $row['product_name'];
-        $quantity = $row['quantity'];
-        $price = $row['price'];
-        $subtotal = $quantity * $price; 
-        $totalPrice += $subtotal; 
+        if ($result->num_rows > 0) {
+            echo "<h2>Cart Items:</h2>";
 
-        echo "<p> <i class='fas fa-utensils'></i>        Food: $productName</p>";
-        echo "<p> <i class='fa-solid fa-database'></i>   Quantity : $quantity</p>";
-        echo "<p> <i class='fa-solid fa-money-bill'></i> Price : RM $price</p>";
-        echo "<p> <i class='fa-solid fa-money-bill'></i> Subtotal : RM $subtotal</p>";
-        
+            $totalPrice = 0; 
 
-        // Delete order from cart
-        echo '<form action="" method="POST">';
-        echo '<input type="hidden" name="product_id" value="' . $productID . '">';
-        echo '<input type="hidden" name="action" value="remove">';
-        echo '<button type="submit" class="btn btn-danger">Delete</button>';
-        echo '</form>';
+            while ($row = $result->fetch_assoc()) {
+                $productID = $row['product_id'];
+                $productName = $row['product_name'];
+                $quantity = $row['quantity'];
+                $price = $row['price'];
+                $subtotal = $quantity * $price; 
+                $totalPrice += $subtotal; 
 
-        echo "<hr>";
-    }
+                echo "<p> <i class='fas fa-utensils'></i>        Food: $productName</p>";
+                echo "<p> <i class='fa-solid fa-database'></i>   Quantity : 
+                    <form action='' method='POST'>
+                        <input type='hidden' name='product_id' value='$productID'>
+                        <input type='hidden' name='action' value='update_quantity'>
+                        <input type='number' name='quantity' value='$quantity' min='1'>
+                        <button type='submit'>Update</button>
+                    </form>
+                    </p>";
+                echo "<p> <i class='fa-solid fa-money-bill'></i> Price : RM $price</p>";
+                echo "<p> <i class='fa-solid fa-money-bill'></i> Subtotal : RM $subtotal</p>";
+                
 
-    echo "<p><i class='fa-solid fa-money-bill'></i> Total Price : RM $totalPrice</p>";
+                // Delete order from cart
+                echo '<form action="" method="POST">';
+                echo '<input type="hidden" name="product_id" value="' . $productID . '">';
+                echo '<input type="hidden" name="action" value="remove">';
+                echo '<button type="submit" class="btn btn-danger">Delete</button>';
+                echo '</form>';
 
-    // proceed to payment page
-    echo '<form action="../php/payment.php" method="POST">';
-    echo '<button type="submit" class="btn btn-primary">Proceed to Checkout</button>';
-    echo '</form>';
-} else {
-    echo "<p>Cart is empty.</p>";
-}
+                echo "<hr>";
+            }
 
-$connection->close();
+            echo "<p><i class='fa-solid fa-money-bill'></i> Total Price : RM $totalPrice</p>";
+
+            // proceed to payment page
+            echo '<form action="../php/payment.php" method="POST">';
+            echo '<button type="submit" class="btn btn-primary">Proceed to Checkout</button>';
+            echo '</form>';
+        } else {
+            echo "<p>Cart is empty.</p>";
+        }
+
+        $connection->close();
 ?>
+
 
 </body>
 
