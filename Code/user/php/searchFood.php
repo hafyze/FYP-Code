@@ -21,6 +21,10 @@
         margin: 0 auto;
        width: 80px;
     }
+
+    .searchResult{
+        margin: 140px auto 20px auto;
+    }
 </style>
 
 <body>
@@ -68,7 +72,7 @@
 
         if ($result->num_rows > 0) {
             // Display the search results
-            echo "<h2>Search Results:</h2>";
+            echo "<h1 class='searchResult'>Search Results:</h1>";
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="product text-center">';
                 echo '<p class="product-type">Product Type: ' . $row['product_type'] . '</p>';
