@@ -16,18 +16,19 @@
 
     /* Header styles */
     header {
-      background-color: #333;
+      background-color: #657566;
       color: #fff;
       padding: 20px;
     }
 
-    h1 {
-      font-size: 24px;
-    }
+    h1{
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+}
 
     /* Sidebar styles */
     .sidebar {
-      background-color: #f2f2f2;
+      background-color: beige;
       width: 250px;
       padding: 20px;
       float: left;
@@ -220,7 +221,7 @@
         <?php } ?>
 
         <div class="fee">
-        Fee: $10
+        Fee: RM 100
         </div>
         <div class="payment">
        Payment: Cash
