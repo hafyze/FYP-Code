@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
   <meta charset="UTF-8">
   <title>Staff Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style>
     /* Reset default browser styles */
     body, h1, ul, li {
@@ -12,6 +13,8 @@
 
     body {
       font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%); 
     }
 
     /* Header styles */
@@ -21,6 +24,10 @@
       padding: 20px;
     }
 
+    div .payment{
+    border-radius: 10px;
+  }
+
     h1{
     text-align: center;
     font-family: 'Dancing Script', cursive;
@@ -28,11 +35,13 @@
 
     /* Sidebar styles */
     .sidebar {
-      background-color: beige;
-      width: 250px;
-      padding: 20px;
+      background-color: white;
+      width: fit-content;
+      padding: 10px 30px ;
       float: left;
+
     }
+
 
     ul {
       list-style-type: none;
@@ -69,9 +78,11 @@
 
     .delivery-card {
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 15px;
       padding: 10px;
       margin-bottom: 10px;
+      background-color: white;
+      width: fit-content;
     }
 
     .delivery-card .title {
@@ -109,6 +120,7 @@
       border-radius: 5px;
       padding: 10px;
       margin-bottom: 10px;
+      background-color: white;
     }
 
     .check-in-out-card .title {
@@ -191,7 +203,10 @@
     mysqli_close($connection);
     ?>
 
-
+    <!-- Logout button -->
+    <form action="logout.php" method="POST">
+    <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
 
     <!-- Delivery features -->
     <div class="delivery-section">
@@ -199,26 +214,7 @@
 
       <!-- Delivery Card 1 -->
       <div class="delivery-card" id="delivery-card-1">
-      <?php
-        include("../php/dataconnection.php");
-
-        // Retrieve payment data from the payment table
-        $selectQuery = "SELECT payment_id, payment_type, fee, customer_address FROM payment";
-        $result = mysqli_query($connection, $selectQuery);
-        ?>
-
-        <!-- HTML template -->
-        <!-- Iterate through the fetched payment data and display it -->
-        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-          <div class="delivery-card" id="delivery-card-<?php echo $row['payment_id']; ?>">
-            <div class="title"><?php echo $row['payment_type']; ?></div>
-            <div class="description">Fee: <?php echo $row['fee']; ?></div>
-            <div class="status">
-              Customer Address: <?php echo $row['customer_address']; ?>
-            </div>
-            <!-- Rest of the HTML template -->
-          </div>
-        <?php } ?>
+      
 
         <div class="fee">
         Fee: RM 100
@@ -227,7 +223,7 @@
        Payment: Cash
        </div>
         <div class="address">
-        Customer Address: 123 Main Street, City, Country
+        Customer Address: No.6 Jalan Schubert , Cyberjaya , Selangor
         </div>
         <div class="status">
           Status: <span class="delivered">Delivered</span>
@@ -239,7 +235,7 @@
           <button onclick="changeDeliveryStatus('delivery-card-1', 'Delivered')">Delivered</button>
         </div>
         <div class="google-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.2236217501277!2d101.66115507483438!3d3.034591096941259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb36044fe6151%3A0x8c7d727d8b83d535!2sIntellogic%20Technology%20Sdn%20Bhd!5e0!3m2!1sen!2smy!4v1688394741294!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.653423908867!2d101.64090187483399!3d2.915672497060724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb71e1ccb9151%3A0x99b9acb0bf859c6d!2sJalan%20Schubert%201B%2C%20Cyberjaya%2C%2063000%20Cyberjaya%2C%20Selangor!5e0!3m2!1sen!2smy!4v1688649782432!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
 
