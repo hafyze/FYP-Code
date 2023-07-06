@@ -17,7 +17,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         // Attempt to execute the prepared statement
         if($stmt->execute()){
             // Records deleted successfully. Redirect to landing page
-			echo "<script>alert('Product records deleted successfully');document.location='promotionindex.php'</script>";
+			echo "<script>alert('Promotion records deleted successfully');document.location='promotionindex.php'</script>";
            // header("location: singerIndex.php");
             exit();
         } else{
@@ -45,6 +45,21 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 <head>
     <meta charset="UTF-8">
     <title>Delete Promotion Record</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{
+            font-family: "Lato", sans-serif;
+            background-color: #ffffff;
+            background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+        }
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+        h2{
+        font-family: 'Dancing Script', cursive;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -55,7 +70,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="alert alert-danger">
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
-                            <p>Are you sure you want to delete this Product record?</p>
+                            <p>Are you sure you want to delete this Promotion record?</p>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">
                                 <a href="promotionindex.php" class="btn btn-secondary ml-2">No</a>

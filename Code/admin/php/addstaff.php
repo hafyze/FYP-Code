@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 // Records created successfully. Redirect to landing page
-				echo "<script>alert('Product created successfully');document.location='insertstaff.php'</script>";
+				echo "<script>alert('Staff created successfully');document.location='insertstaff.php'</script>";
                // header("location: singerIndex.php");
                 exit();
             } else{
@@ -107,11 +107,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Register New Staff Information</title>
-    <link rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
+        body{
+            font-family: "Lato", sans-serif;
+            background-color: #ffffff;
+            background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+        }
         .wrapper{
             width: 600px;
             margin: 0 auto;
+            margin-top: 50px;
+        }
+        .invalid-feedback {
+            display: block;
+            color: red;
+        }
+        h2{
+        font-family: 'Dancing Script', cursive;
         }
     </style>
 </head>
@@ -141,9 +154,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						<div class="form-group">
                             <label>Role</label>
 									<select name="staff_role">
-									<option value=1 >Chef</option>
-									<option value=2 >Delivery</option>
-									<option value=3 >Customer Service</option>
+									<option value=Chef >Chef</option>
+									<option value=Delivery >Delivery</option>
+									<option value=Customer_Service >Customer Service</option>
 									</select>
 									<span class="invalid-feedback"><?php echo $role_err;?></span>
                         </div>

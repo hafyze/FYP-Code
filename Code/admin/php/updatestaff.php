@@ -27,15 +27,19 @@ if(empty($input_name)){
       // Validate contact
 $input_contact = trim($_POST["staff_contact"]);
 if(empty($input_contact)){
-    $contact_err = "Please input staff contact.";  
+    $contact_err = "Please input staff contact.";
+}elseif(preg_match('/^[0-9]{10}+$/', $contact)){
+    $contact_err = "Please enter a valid phone number.";
 } else{
     $contact = $input_contact;
 }
  
  //validate email
  $input_email = trim($_POST["staff_email"]);
-if(empty($input_email)){
-    $email_err = "Please enter cart end date.";
+ if(empty($input_email)){
+    $email_err = "Please enter staff email adress.";  
+} elseif (!filter_var($input_email, FILTER_VALIDATE_EMAIL)) {
+    $email_err = "Invalid email format";	
 } else{
     $email = $input_email;
 }
@@ -71,7 +75,7 @@ if(empty($name_err) && empty($contact_err)&& empty($email_err)&& empty($admin_er
 
     if($stmt = $connection->prepare($sql)){
         // Bind variables to the prepared statement as parameters
-        $stmt->bind_param("sisisii", $param_name, $param_contact, $param_email, $param_admin, $param_role, $param_id, $param_pass);
+        $stmt->bind_param("sssisii", $param_name, $param_contact, $param_email, $param_admin, $param_role, $param_id, $param_pass);
         // Set parameters
         $param_name = $name;
         $param_contact = $contact;
@@ -84,7 +88,7 @@ if(empty($name_err) && empty($contact_err)&& empty($email_err)&& empty($admin_er
         // Attempt to execute the prepared statement
         if($stmt->execute()){
             // Records created successfully. Redirect to landing page
-            echo "<script>alert('Product created successfully');document.location='insertstaff.php'</script>";
+            echo "<script>alert('Staff updated successfully');document.location='insertstaff.php'</script>";
            // header("location: singerIndex.php");
             exit();
         } else{
@@ -159,6 +163,26 @@ $connection->close();
 <head>
     <meta charset="UTF-8">
     <title>Update Staff Info</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+       body{
+            font-family: "Lato", sans-serif;
+            background-color: #ffffff;
+            background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+        }
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        .invalid-feedback {
+            display: block;
+            color: red;
+        }
+        h2{
+        font-family: 'Dancing Script', cursive;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
@@ -193,7 +217,7 @@ $connection->close();
                         </div>
 						<div class="form-group mb-3">
                                 <label>Password</label>
-                                <input required type="password" id="staff_pass" name="staff_pass" placeholder="Enter your password" class="form-control">
+                                <input required type="password" id="staff_pass" name="staff_pass" placeholder="Enter your password" class="form-control" >
                         </div>
                         <div class="form-group">
                             <label>Admin</label>

@@ -81,11 +81,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Register New Product Information</title>
-    <link rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
+        body{
+            font-family: "Lato", sans-serif;
+            background-color: #ffffff;
+            background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+        }
         .wrapper{
             width: 600px;
             margin: 0 auto;
+            margin-top: 50px;
+        }
+        .invalid-feedback {
+            display: block;
+            color: red;
+        }
+        h2{
+        font-family: 'Dancing Script', cursive;
         }
     </style>
 </head>
@@ -95,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="mt-5">Product</h2>
-                    <p>Please fill this form and submit to add prodcut to the database.</p>
+                    <p>Please fill this form and submit to add Product to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label>Name</label>
