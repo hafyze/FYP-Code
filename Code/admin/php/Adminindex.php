@@ -7,6 +7,7 @@
     body {
       font-family: "Lato", sans-serif;
       background-color: #ffffff;
+      background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
       margin: 0;
       padding: 0;
     }
@@ -37,6 +38,7 @@
       text-align: left;
       cursor: pointer;
       outline: none;
+      transition: color 0.3s;
     }
     
     /* On mouse-over */
@@ -54,6 +56,40 @@
     h2 {
       margin-top: 0;
     }
+    
+    /* Add some visual enhancements */
+    .sidenav a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: left 0.3s;
+      z-index: -1;
+    }
+    
+    .sidenav a:hover::before {
+      left: 0;
+    }
+    
+    /* Add a subtle gradient background to the main content */
+    .main {
+      background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+    }
+    
+    /* Make the welcome message stand out */
+    .main h2 {
+      color: #333333;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    
+    .main p {
+      color: #666666;
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
@@ -68,8 +104,8 @@
 </div>
 
 <div class="main">
-  <h2>Administration Interface</h2>
-  <p>Welcome back</p>
+  <h2>Welcome back, Administrator</h2>
+  <p>Manage your tasks with ease.</p>
 </div>
 
 </body>

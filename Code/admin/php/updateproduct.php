@@ -140,6 +140,7 @@ $connection->close();
         body{
             font-family: "Lato", sans-serif;
             background-color: #ffffff;
+            background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
         }
         .wrapper{
             width: 600px;
