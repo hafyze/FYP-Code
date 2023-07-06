@@ -48,15 +48,7 @@ h1{
     font-family: 'Dancing Script', cursive;
 }
 
-#mainImg{
-    padding: 25px 0;
-    width: 550px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 45%;
-}
+
 
 .profile{
     padding: 15px;

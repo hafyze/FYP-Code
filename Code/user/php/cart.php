@@ -85,6 +85,14 @@
         #tdvText a:hover{
             text-decoration: none;
         }
+
+        #search-form input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
 </style>
 
 <body>
